@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+.section-two {
+    height: $s2-h;
+    .section-two-left {
+        float: $f-left;
+        height: 100%;
+        margin-right: 10px;
+        // 独家特供
+        .exclusive {
+            width: 950px;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            // 头部标题、tab选项卡
+            .head {
+                @extend %tab-head;
+            }
+            // 内容
+            ul {
+                @extend %content-ul;
+                width: 1000px;
+                padding-top: 20px;
+                li {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .section-two-right {
+        float: $f-left;
+        height: 100%;
+        // 图书畅销榜
+        .sell-well-menu {
+            padding-top: 10px;
+            @include tab-switch();
+            .tab-content {
+                height: 488px;
+            }
+        }
+    }
+}

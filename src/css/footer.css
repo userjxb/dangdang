@@ -1,0 +1,117 @@
+.footer {
+  height: 420px;
+}
+.footer .promise {
+  background-color: #fafafa;
+  border-bottom: 1px solid #ebebeb;
+  width: 100%;
+}
+.footer .promise .inner {
+  width: 940px;
+  margin: 0 auto;
+  height: 68px;
+  padding: 5px 0 5px 30px;
+}
+.footer .promise .inner a {
+  display: block;
+  height: 52px;
+  width: 187px;
+  float: left;
+  padding: 7px 0 7px 48px;
+}
+.footer .promise .inner a span {
+  text-indent: -9999px;
+  display: block;
+  width: 138px;
+  height: 52px;
+  background: url(http://img61.ddimg.cn/upload_img/00660/home/footer_bg.png) no-repeat;
+  font-size: 0;
+  line-height: 0;
+  cursor: pointer;
+}
+.footer .promise .inner a .one {
+  background-position: 0 0;
+}
+.footer .promise .inner a .two {
+  background-position: 0 -51px;
+}
+.footer .promise .inner a .three {
+  background-position: 0 -103px;
+}
+.footer .promise .inner a .four {
+  background-position: 0 -156px;
+}
+.footer .public-serve {
+  width: 920px;
+  height: 140px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+.footer .public-serve dl {
+  width: 124px;
+  float: left;
+  padding-left: 30px;
+}
+.footer .public-serve dl dt {
+  font-weight: bold;
+  font-size: 14px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  color: #323232;
+}
+.footer .public-serve dl dd {
+  height: 20px;
+  line-height: 20px;
+  font-size: 12px;
+  text-align: center;
+}
+.footer .public-serve dl dd a {
+  color: #7d7d7d;
+}
+.footer .public-serve dl dd a:hover {
+  color: #ff2832;
+  text-decoration: none;
+}
+.footer .public-serve dl:last-child {
+  width: 120px;
+}
+.footer .nav-copyright {
+  color: #8c8c8c;
+  font-size: 12px;
+  border-top: 1px solid #ebebeb;
+  min-width: 960px;
+  padding: 17px 0 50px;
+}
+.footer .nav-copyright .footer-nav {
+  text-align: center;
+  line-height: 20px;
+  padding-bottom: 17px;
+}
+.footer .nav-copyright .footer-nav a {
+  color: #8c8c8c;
+}
+.footer .nav-copyright .footer-nav a:hover {
+  color: #ff2832;
+  text-decoration: none;
+}
+.footer .nav-copyright .footer-nav .sep {
+  margin: 0 17px 0 19px;
+}
+.footer .nav-copyright .copyright {
+  line-height: 20px;
+  text-align: center;
+  width: 960px;
+  margin: 0 auto;
+  padding: 10px 0 0 0;
+}
+.footer .nav-copyright .copyright a {
+  padding: 0 4px;
+  color: #8c8c8c;
+  font-size: 12px;
+}
+.footer .nav-copyright .copyright a img {
+  vertical-align: bottom;
+}
+
+/*# sourceMappingURL=footer.css.map */

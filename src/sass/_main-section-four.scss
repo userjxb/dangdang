@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+.section-four {
+    height: $s4-h;
+    .section-four-left {
+        float: $f-left;
+        height: 100%;
+        margin-right: 10px;
+        // 主编推荐
+        .chief-recommend {
+            width: 950px;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+             // 头部标题、tab选项卡
+            .head {
+                @extend %tab-head;
+                .title {
+                    background-position: 0 -78px;
+                }
+            }
+            // 内容
+            ul {
+                @extend %content-ul;
+                width: 1000px;
+                padding-top: 20px;
+                li {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+
+    .section-four-right {
+        float: $f-left;
+        height: 100%;
+        // 电子书榜
+        .eBooks-menu {
+            padding-top: 10px;
+            @include tab-switch();
+            .tab-content {
+                border-top: 2px solid #487a6f;
+            }
+        }
+    }
+}

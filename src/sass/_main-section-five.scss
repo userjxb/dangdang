@@ -1,0 +1,349 @@
+@charset "utf-8";
+
+.section-five {
+    height: $s5-h;
+    margin-bottom: 20px;
+    .section-five-left {
+        float: $f-left;
+        margin-right: 10px;
+        // 热门作者、名人堂
+        .author-stars {
+            width: 948px;
+            height: 525px;
+            // 头部选项卡
+            .tab-head {
+                height: 36px;
+                border: 1px solid #eaeaea;
+                position: relative;
+                .tab-ul {
+                    height: 39px;
+                    position: absolute;
+                    left: -1px;
+                    top: -2px;
+                }
+                li {
+                    float: left;
+                    width: 122px;
+                    height: 38px;
+                    line-height: 38px;
+                    margin-top: 1px;
+                    span {
+                        display: block;
+                        width: 120px;
+                        height: 38px;
+                        font-size: 16px;
+                        color: #3d3d3d;
+                        text-align: center;
+                        padding: 0 1px;
+                        cursor: pointer;
+                        border-left: 1px solid #eaeaea;
+                    }
+                    &.active {
+                        border-top: 2px solid #487a6f;
+                        margin-top: 0px;
+                        background-color: #fff;
+                        height: 37px;
+                    }
+                }
+            }
+            // 对应内容
+            // 1.热门作家
+            .hot-author {
+                position: relative;
+                height: 470px;
+                border: 1px solid #eaeaea;
+                border-top: 0px;
+                // 左边
+                .left {
+                    width: 750px;
+                    position: absolute;
+                    left: 10px;
+                    top: 0;
+                    // 作家介绍
+                    .introduction {
+                        height: 195px;
+                        border-bottom: 1px dotted #d4d4d4;
+                        // 排名
+                        .rank-num {
+                            position: absolute;
+                            left: 0px;
+                            top: 0px;
+                            font-size: 30px;
+                            font-weight: bold;
+                            color: #ff4f4b;
+                            font-family: Arial;
+                            height: 46px;
+                            line-height: 46px;
+                            span {
+                                font-size: 16px;
+                            }
+                        }
+                        // 作家照片
+                        .img {
+                            position: absolute;
+                            left: 45px;
+                            top: 20px;
+                        }
+                        // 作家名字
+                        .name {
+                            font-size: 18px;
+                            color: #000;
+                            position: absolute;
+                            left: 206px;
+                            top: 40px;
+                            height: 30px;
+                            line-height: 30px;
+                            font-weight: bold;
+                        }
+                        // 作家细节经历
+                        .detail {
+                            height: 96px;
+                            line-height: 24px;
+                            overflow: hidden;
+                            position: absolute;
+                            left: 206px;
+                            top: 70px;
+                            color: #666;
+                        }
+                    }
+                    // 作品
+                    .opus {
+                        position: absolute;
+                        left: 0px;
+                        top: 184px;
+                        height: 24px;
+                        line-height: 24px;
+                        width: 80px;
+                        background-color: #fff;
+                        span {
+                            display: block;
+                            width: 66px;
+                            border-radius: 5px;
+                            background-color: #f8f8f8;
+                            text-align: center;
+                            color: #000;
+                            font-size: 14px;
+                        }
+                    }
+                    // 作者的书
+                    .author-books {
+                        @extend %content-ul;
+                    }
+                }
+                // 右边
+                .right {
+                    position: absolute;
+                    left: 795px;
+                    top: 11px;
+                    width: 132px;
+                    border: 1px solid #e1e1e1;
+                    background-color: #f8f8f8;
+                    padding: 0 4px;
+                    height: 448px;
+                    overflow: hidden;
+                    li {
+                        border-top: 1px solid #fff;
+                        border-bottom: 1px solid #e1e1e1;
+                        height: 42px;
+                        position: relative;
+                        overflow: hidden;
+                        line-height: 42px;
+                        padding-bottom: 1px;
+                        vertical-align: top;
+                        .number {
+                            float: left;
+                            width: 22px;
+                            padding-left: 8px;
+                            color: #487a6f;
+                            font-size: 14px;
+                        }
+                        .author-name {
+                            width: 100px;
+                            float: left;
+                            color: #3d3d3d;
+                        }
+                    }
+                }
+            }
+            // 名人堂
+            .good-author {
+                position: relative;
+                height: 470px;
+                border: 1px solid #eaeaea;
+                border-top: 0px;
+                // 左边
+                .left {
+                    position: absolute;
+                    width: 145px;
+                    height: 420px;
+                    left: 25px;
+                    top: 23px;
+                    border-right: 1px dotted #eaeaea;
+                    padding-right: 39px;
+                    .introduction {
+                        // 作者照片
+                        img {
+                            margin-bottom: 5px;
+                            display: block;
+                            width: 145px;
+                            height: 145px;
+                        }
+                        // 作者名字
+                        .name {
+                            font-size: 18px;
+                            color: #000;
+                            text-align: center;
+                            height: 42px;
+                            line-height: 42px;
+                            font-weight: bold;
+                            position: relative;
+                        }
+                        // 细节经历
+                        .detail {
+                            color: #666;
+                            line-height: 24px;
+                        }
+                    }
+                }
+                // 右边
+                .right {
+                    width: 670px;
+                    position: absolute;
+                    left: 240px;
+                    top: 28px;
+                    // 代表作
+                    .show-book {
+                        @include clearfix();
+                        border-bottom: 1px dotted #eaeaea;
+                        padding-bottom: 25px;
+                        // p的公用样式
+                        p {
+                            float: left;
+                            width: 470px;
+                        }
+                        // 书的图片
+                        .img {
+                            float: left;
+                            img {
+                                display: block;
+                                width: 200px;
+                                height: 200px;
+                            }
+                        }
+                        // 书的名字
+                        .name {
+                            height: 48px;
+                            position: relative;
+                            overflow: hidden;
+                            padding-top: 5px;
+                            a {
+                                font-size: 14px;
+                                line-height: 24px;
+                                font-weight: bold;
+                            }
+                        }
+                        // 星级评分
+                        .star {
+                            height: 14px;
+                            padding: 8px 0 7px;
+                            .level {
+                                display: block;
+                                width: 69px;
+                                height: 13px;
+                                background: url(../img/book_star_bg.png) 0 bottom repeat-x;
+                                i {
+                                    display: block;
+                                    width: 100%;
+                                    height: 13px;
+                                    background: url(../img/book_star_bg.png) 0 top repeat-x;
+                                }
+                            }
+                        }
+                        // 价格
+                        .price {
+                            font-size: 14px;
+                            margin-top: 2px;
+                            font-family: "Arial";
+                            // 新价格
+                            .new-price {
+                                color: #c30000;
+                                margin-right: 12px;
+                                font-weight: bold;
+                            }
+                            // 老价格
+                            .old-price {
+                                color: #aaa;
+                                text-decoration: line-through;
+                                margin-right: 12px;
+                            }
+                            // 电子书价格
+                            .ebook-price {
+                                display: inline-block;
+                                font-size: 12px;
+                                padding: 4px 0 0 16px;
+                                color: #787878;
+                                background: url(http://img63.ddimg.cn/upload_img/00111/book/e-book.png) no-repeat 0 5px;
+                            }
+                        }
+                        // 书的细节
+                        .detail {
+                            height: 72px;
+                            position: relative;
+                            overflow: hidden;
+                            line-height: 24px;
+                            color: #666;
+                            margin-top: 10px;
+                        }
+                    }
+                    // 其他作品
+                    .other-book {
+                        @include clearfix();
+                        font-size: 14px;
+                        color: #666;
+                        line-height: 50px;
+                        margin-top: 20px;
+                        .item {
+                            height: 50px;
+                            position: relative;
+                            overflow: hidden;
+                            font-weight: bold;
+                            ul {
+                                position: absolute;
+                                left: 135px;
+                                top: 0;
+                                width: 535px;
+                                height: 50px;
+                            }
+                            li {
+                                float: left;
+                                margin-right: 15px;
+                                a {
+                                    color: #3576b2;
+                                    font-weight: normal;
+                                }
+                                @include a-hover(#3576b2,underline);
+                            }
+                        }
+                    }
+                }
+            }
+            // 新锐作家
+            .new-author {
+                @extend .good-author;
+            }
+        }
+    }
+
+    .section-five-right {
+        float: $f-left;
+        height: 100%;
+        // 广告
+        .book-ad {
+            width: 240px;
+            a {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}

@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+.section-nine {
+    height: $s9-h;
+    // 图书尾品汇
+    .book-vip {
+        height: 100%;
+        ul {
+            @include clearfix();
+            width: 1202px;
+            border-right: 1px solid #eaeaea;
+            border-bottom: 1px solid #eaeaea;
+            li {
+                width: 199px;
+                border-left: 1px solid #eaeaea;
+                border-top: 1px solid #eaeaea;
+                float: left;
+                overflow: hidden;
+                height: 178px;
+                position: relative;
+                // 图片
+                .img {
+                    padding: 10px 40px 0;
+                }
+                // 书名
+                .name {
+                    width: 134px;
+                    height: 18px;
+                    line-height: 18px;
+                    font-size: 12px;
+                    overflow: hidden;
+                    position: absolute;
+                    left: 65px;
+                    bottom: 7px;
+                }
+                // 价格
+                .price {
+                    font-size: 14px;
+                    position: absolute;
+                    bottom: 2px;
+                    left: 10px;
+                    width: 58px;
+                    height: 30px;
+                    color: #da245d;
+                    text-align: left;
+                    span {
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

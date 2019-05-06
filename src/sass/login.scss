@@ -1,0 +1,106 @@
+@charset "utf-8";
+
+// 头部logo
+.head {
+    margin: 12px auto 14px;
+    width: 1200px;
+    height: 60px;
+}
+// 登陆区域背景
+.login-bg {
+    width: 1200px;
+    margin: 0 auto;
+    height: 590px;
+    background: url(../img/get_login_ad.php) no-repeat center center;
+}
+// 登录表单
+form {
+    background: #fff;
+    padding: 15px 25px;
+    float: right;
+    width: 320px;
+    color: #6e6e6e;
+    margin: 140px auto 0;
+    position: relative;
+    border: 1px solid #eef2f4;
+    box-shadow: 0px 1px 2px #eee;
+    // 标题
+    .title {
+        font-size: 18px;
+        color: #3c3c3c;
+        margin-top: 5px;
+    }
+    // 用户名输入框
+    .username {
+        width: 320px;
+        margin-top: 20px;
+        position: relative;
+        label {
+            width: 30px;
+            margin-right: 10px;
+            height: 36px;
+            float: left;
+            background: url(../img/icon_20150706.png) 10px -110px no-repeat;
+            position: absolute;
+        }
+        input {
+            width: 280px;
+            height: 34px;
+            border: 1px solid #e6e6e6;
+            padding-left: 40px;
+        }
+    }
+    // 表单验证提示信息
+    .tip {
+        height: 30px;
+        line-height: 30px;
+        padding-left: 10px;
+    }
+    // 密码输入框
+    .password {
+        @extend .username;
+        margin-top: 0px;
+        label {
+            background-position: 10px -150px;
+        }
+    }
+    // 自动登录
+    .auto-login {
+        width: 310px;
+        height: 27px;
+        line-height: 22px;
+        padding-left: 5px;
+        padding-top: 7px;
+        overflow: hidden;
+        input {
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    }
+    // 登录按钮
+    .login-btn {
+        a {
+            border-radius: 5px;
+            display: inline-block;
+            background: #ff2832;
+            text-align: center;
+            font-size: 20px;
+            width: 320px;
+            height: 44px;
+            line-height: 44px;
+            color: #fff;
+        }
+    }
+    // 注册按钮
+    .register-btn {
+        margin-top: 10px;
+        a {
+            font-size: 12px;
+            float: right;
+            color: #6e6e6e;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

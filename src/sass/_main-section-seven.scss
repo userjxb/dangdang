@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+.section-seven {
+    height: $s7-h;
+    // 猜你喜欢
+    .guess-you-like {
+        height: 100%;
+        .head {
+            @extend %tab-head;
+            .title {
+                background-position: 0 -150px;
+            }
+        }
+        // 内容
+        ul {
+            @include clearfix();
+            @extend %content-ul;
+            width: 960px;
+            padding-top: 20px;
+            float: left;
+            li {
+                margin-bottom: 17px;
+            }
+        }
+        // 你可能喜欢的作者
+        .may-author {
+            width: 200px;
+            height: 490px;
+            float: left;
+            background: #f7f7f7;
+            overflow: hidden;
+            padding: 20px 20px 0;;
+            h1 {
+                color: #487a6f;
+                font-size: 16px;
+                height: 24px;
+                line-height: 24px;
+                font-weight: normal;
+                padding-left: 7px;
+                font-family: "Microsoft Yahei";
+            }
+            dl {
+                padding-left: 9px;
+                dd {
+                    width: 85px;
+                    height: 30px;
+                    line-height: 30px;
+                    margin-right: 5px;
+                    float: left;
+                }
+            }       
+        }
+    }
+}
