@@ -197,11 +197,26 @@
   background: #ff2832;
   position: relative;
 }
-.nav-top li.all a {
+.nav-top li.all .dropdown {
   padding: 0 0 0 20px;
   width: 171px;
   background: url(../img/head_sprite.png) no-repeat 161px -567px;
   color: #fff;
+}
+.nav-top li.all .dropmenu {
+  display: none;
+  width: 200px;
+  background-color: #fafafa;
+  position: absolute;
+  left: 0;
+  top: 43px;
+  z-index: 100;
+}
+.nav-top li.all .dropmenu .list {
+  height: 32px;
+  padding-left: 20px;
+  color: #323232;
+  font: 14px/32px "Microsoft Yahei";
 }
 .nav-top li a {
   display: block;

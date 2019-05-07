@@ -23,11 +23,8 @@ $f-left:left;
         text-decoration: $u;
     }
 }
-// 头部a的样式
-<<<<<<< HEAD
-=======
 
->>>>>>> 第二次修改
+// 头部a的样式
 %a-style {
     color: #646464;
     &:hover {
@@ -36,12 +33,9 @@ $f-left:left;
     }
 }
 
-<<<<<<< HEAD
 @import "header";
 @import "main";
 @import "aside";
-@import "footer";
-=======
 @import "main";
+@import "footer";
 @import "aside";
->>>>>>> 第二次修改

@@ -83,6 +83,21 @@
   padding-bottom: 30px;
   border-bottom: 1px solid #f5f5f5;
 }
+.show-info .msg {
+  margin-top: 10px;
+}
+.show-info .msg::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.show-info .msg div {
+  float: left;
+  padding: 0 10px;
+}
+.show-info .msg span {
+  color: #214c90;
+}
 .show-info .price {
   background-color: #ebebeb;
   padding: 0 0 10px 10px;
