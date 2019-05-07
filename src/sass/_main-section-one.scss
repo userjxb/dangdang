@@ -27,7 +27,7 @@ $list-color:#487a6f;
             // 列表内容
             .content {
                 width: 190px;
-                height: 863px;
+                height: 894px;
                 border-top: 2px dotted $list-color;
                 border-bottom: 1px solid $list-color;
                 background: url(../img/sidemenu_bg2.png) -20px 0px repeat-y;
@@ -99,7 +99,7 @@ $list-color:#487a6f;
                     width: 590px;
                     border: 1px solid #487a6f;
                     padding: 6px 12px 15px 16px;
-                    z-index: 5;
+                    z-index: 20;
                     box-shadow: -1px 1px 8px #bbb;
                     background: #fff;
                     display: none;
@@ -160,12 +160,16 @@ $list-color:#487a6f;
                     left: 0;
                     top: 0;
                 }
+                li:first-child {
+                    z-index: 1;
+                }
             }
             // 小圆点按钮
             .btns {
                 position: absolute;
                 right: 0;
                 bottom: 10px;
+                z-index: 10;
                 li {
                     width: 21px;
                     height: 21px;
@@ -189,7 +193,7 @@ $list-color:#487a6f;
         // 新书上架
         .newbook {
             width: 750px;
-            height: 575px;
+            height: 608px;
             position: relative;
             // 标题图片
             .title {
@@ -202,7 +206,7 @@ $list-color:#487a6f;
                 @extend %content-ul;
             }
             // 小圆点按钮
-            @include ol-btns(337px,565px);
+            @include ol-btns(337px,600px);
             // 左右按钮
             @include prev-next();
             .button {

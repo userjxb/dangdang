@@ -21,8 +21,9 @@
             }
             // 下拉菜单
             .dropmenu {
-                display: none;
                 width: 200px;
+                height: 0;
+                overflow: hidden;
                 background-color: #fafafa;
                 position: absolute;
                 left: 0;
