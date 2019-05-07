@@ -90,12 +90,16 @@
     font: 12px "Verdana","Simsun";
     color: #646464;
     // 标题
-    .title {
+    .head {
         font-size: 18px;
-        color: #323232;
-        padding-bottom: 30px;
+        padding-bottom: 20px;
         border-bottom: 1px solid #f5f5f5;
+        color: #323232;
+        .title {
+            margin-bottom: 10px;
+        }
     }
+    
     // 作者
     .msg {
         @include clearfix();

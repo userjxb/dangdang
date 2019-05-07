@@ -4,8 +4,8 @@
     height: $s8-h;
     border-bottom: 1px solid #eaeaea;
     margin-bottom: 25px;
+    position: relative;
     .section-eight-left {
-        float: $f-left;
         height: 100%;
         margin-right: 10px;
         // 读者推荐
@@ -22,13 +22,16 @@
             // 内容
             .tab-content {
                 @extend %content-ul;
+                width: 1000px;
             }
         } 
     }
 
     .section-eight-right {
-        float: $f-left;
         height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
         // 当当读书社区
         .community {
             width: 238px;

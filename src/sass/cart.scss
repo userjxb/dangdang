@@ -228,6 +228,14 @@
                     font-size: 16px;
                     padding-right: 90px;
                 }
+                .book-count {
+                    float: right;
+                    font-size: 15px;
+                    padding-top: 15px;
+                    span {
+                        color: red;
+                    }
+                }
             }
         }
     }

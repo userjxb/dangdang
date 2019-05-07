@@ -5,6 +5,7 @@
     // 猜你喜欢
     .guess-you-like {
         height: 100%;
+        position: relative;
         .head {
             @extend %tab-head;
             .title {
@@ -15,9 +16,8 @@
         ul {
             @include clearfix();
             @extend %content-ul;
-            width: 960px;
+            width: 1000px;
             padding-top: 20px;
-            float: left;
             li {
                 margin-bottom: 17px;
             }
@@ -26,7 +26,9 @@
         .may-author {
             width: 200px;
             height: 490px;
-            float: left;
+            position: absolute;
+            right: 0;
+            top: 51px;
             background: #f7f7f7;
             overflow: hidden;
             padding: 20px 20px 0;;

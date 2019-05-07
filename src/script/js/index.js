@@ -6,7 +6,7 @@
     $(".footer").load("footer.html"); // 引入尾部html
 })(jQuery);
 
-//banner轮播图
+//banner简单轮播图
 ;(function ($) {
     class Silder {
         constructor() {
@@ -21,6 +21,13 @@
             var _this = this;
             // 自动轮播
             this.autoplay();
+            // 鼠标移入关闭自动轮播、鼠标移出开启自动轮播
+            this.$silderBox.on("mouseover",function() {
+                clearInterval(_this.timer);
+            });
+            this.$silderBox.on("mouseout",function() {
+                _this.autoplay();
+            });
             // 小圆点控制
             this.$olBtns.on('mouseover', function () {
                 _this.num = $(this).index();
@@ -92,13 +99,157 @@
 
 // tab切换
 ;(function($) {
-
     $(".tab").tab({
         etype: "mouseover",
         btnLi: ".tab-title li",
         contentLi: ".tab-content .con",
         addLiClass: "active"
     });
+})(jQuery);
+
+// 幻灯片效果(新书预售)
+;(function ($) {
+    class slider {
+        constructor() {
+            //获取元素
+            this.$imgsUl = $('.open-to-booking .content');
+            this.$imgsLi = $('.open-to-booking .content li');
+            this.$olBtn = $('.open-to-booking ol li');
+            this.$leftBtn = $('.open-to-booking .prev');
+            this.$rightBtn = $('.open-to-booking .next');
+
+            this.timer = null;
+            this.num = 0;
+            this.bstop = true;
+        }
+        init() {
+            var _this = this;
+            // 小圆点控制
+            this.$olBtn.on('mouseover', function () {
+                _this.num = $(this).index();
+                _this.imgChange();
+            });
+            // 点击左按钮切换到上一张
+            this.$leftBtn.on('click', function () {
+                _this.prev();
+            });
+            // 点击右按钮切换到上一张
+            this.$rightBtn.on('click', function () {
+                _this.next();
+            });
+        }
+        // 图片切换
+        imgChange() {
+            var _this = this;
+
+            if(this.num < 0) {
+                this.num = this.$olBtn.length - 1;
+            }else if(this.num > this.$olBtn.length - 1) {
+                this.num = 0;
+            }
+            
+            this.$olBtn.eq(this.num).addClass('active').siblings().removeClass('active');
+
+            this.$liWidth = this.$imgsLi.eq(0).width();
+            this.l = -this.$liWidth * this.num;
+            
+            this.$imgsUl.stop().animate({
+                left: this.l
+            }, function () {
+                _this.bstop = true;
+            });
+        }
+        // 左按钮功能
+        prev() {
+            if(this.bstop) {
+                this.bstop = false;
+                this.num--;
+                this.imgChange();
+            }
+        }
+        // 右按钮功能
+        next() {
+            if(this.bstop) {
+                this.bstop = false;
+                this.num++;
+                this.imgChange();
+            } 
+        }
+    }
+    new slider().init();
+
+})(jQuery);
+
+// 幻灯片效果(新书上架)
+;(function ($) {
+    class slider {
+        constructor() {
+            //获取元素
+            this.$imgsUl = $('.slider .content');
+            this.$imgsLi = $('.slider .content .con');
+            this.$olBtn = $('.slider .btns li');
+            this.$leftBtn = $('.slider .prev');
+            this.$rightBtn = $('.slider .next');
+
+            this.timer = null;
+            this.num = 0;
+            this.bstop = true;
+        }
+        init() {
+            var _this = this;
+            // 小圆点控制
+            this.$olBtn.on('mouseover', function () {
+                _this.num = $(this).index();
+                _this.imgChange();
+            });
+            // 点击左按钮切换到上一张
+            this.$leftBtn.on('click', function () {
+                _this.prev();
+            });
+            // 点击右按钮切换到上一张
+            this.$rightBtn.on('click', function () {
+                _this.next();
+            });
+        }
+        // 图片切换
+        imgChange() {
+            var _this = this;
+
+            if(this.num < 0) {
+                this.num = this.$olBtn.length - 1;
+            }else if(this.num > this.$olBtn.length - 1) {
+                this.num = 0;
+            }
+            
+            this.$olBtn.eq(this.num).addClass('active').siblings().removeClass('active');
+
+            this.$liWidth = this.$imgsLi.eq(0).width();
+            this.l = -this.$liWidth * this.num;
+            
+            this.$imgsUl.stop().animate({
+                left: this.l
+            }, function () {
+                _this.bstop = true;
+            });
+        }
+        // 左按钮功能
+        prev() {
+            if(this.bstop) {
+                this.bstop = false;
+                this.num--;
+                this.imgChange();
+            }
+        }
+        // 右按钮功能
+        next() {
+            if(this.bstop) {
+                this.bstop = false;
+                this.num++;
+                this.imgChange();
+            } 
+        }
+    }
+    new slider().init();
 
 })(jQuery);
 
@@ -106,17 +257,25 @@
 ;(function ($) {
     class drawAll {
         constructor() {
-            this.$content = $('.newbook .content .con');
+            this.$newbook = $('.newbook .content .con'); //新书上架
+            this.$exclusive = $(".exclusive .tab-content .con"); //独家特供
+            this.$chiefRecommend = $(".chief-recommend .tab-content .con"); //主编推荐
+            this.$guessYouLike = $(".guess-you-like .tab-content .con"); //猜你喜欢
+            this.$readerRecommend = $(".reader-recommend .tab-content .con"); //读者推荐
             this.$phpUrl = 'http://10.31.163.63/dangdang/php/';
         }
     
         init() {
             var _this = this;
-            this.newbook();
+            this.drawData(this.$newbook,8); //新书上架渲染
+            this.drawData(this.$exclusive,10); //独家特供渲染
+            this.drawData(this.$chiefRecommend,10); //主编推荐渲染
+            this.drawData(this.$guessYouLike,10); //猜你喜欢渲染
+            this.drawData(this.$readerRecommend,10); //读者推荐渲染
         }
 
-        // 新书上架数据渲染
-        newbook() {
+        // 数据渲染
+        drawData(ele,num) {
             var _this = this;
             $.ajax({
                 url: this.$phpUrl + 'allData.php',
@@ -124,41 +283,45 @@
                 success:function(data) {
                     let $htmlStr = '';
                     let ebookHtmlStr = '';
-                    let valueArr = []; 
+                    // 判断要渲染几条数据
+                    var n = 0;
+                    if(num<data.length) {
+                        n = num || data.length;
+                    }else {
+                        n = data.length;
+                    }
+                    
                     $.each(data, function (index, value) {
-                        valueArr.push(value);
-                        $.each(valueArr,function(index,value) {
-                            
-                        });
                         // 电子书价格的拼接
                         ebookHtmlStr = `<span class="ebookprice">
                                             <span class="ebookprice_title">电子书</span>
                                             <span class="sign">¥</span><span class="num">${value.ebookprice}</span>
                                         </span>`;
                         // 每本图书的拼接
-                        $htmlStr += `<li>
-                                        <a href="detail.html?sid=${value.sid}" target="_blank">
-                                            <img src=${value.picurl}>
-                                        </a>
-                                        <p class="name">
-                                            <a href="detail.html?sid=${value.sid}">${value.name}</a>
-                                        </p>
-                                        <p class="author">${value.author} 著</p>
-                                        <p class="price">
-                                            <span class="new-price">
-                                                <span class="sign">¥</span>
-                                                <span class="num">${value.newprice}</span>
-                                            </span>
-                                            <span class="old-price">
-                                                <span class="sign">¥</span>
-                                                <span class="num">${value.oldprice}</span>
-                                            </span>
-                                            ${value.ebookprice?ebookHtmlStr:''}
-                                        </p>
-                                    </li>`;
+                        if(index<n) {
+                            $htmlStr += `<li>
+                                            <a href="detail.html?sid=${value.sid}" target="_blank">
+                                                <img src=${value.picurl}>
+                                            </a>
+                                            <p class="name">
+                                                <a href="detail.html?sid=${value.sid}">${value.name}</a>
+                                            </p>
+                                            <p class="author">${value.author} 著</p>
+                                            <p class="price">
+                                                <span class="new-price">
+                                                    <span class="sign">¥</span>
+                                                    <span class="num">${value.newprice}</span>
+                                                </span>
+                                                <span class="old-price">
+                                                    <span class="sign">¥</span>
+                                                    <span class="num">${value.oldprice}</span>
+                                                </span>
+                                                ${value.ebookprice?ebookHtmlStr:''}
+                                            </p>
+                                        </li>`;
+                        }
                     });
-                    $htmlStr += $htmlStr;
-                    _this.$content.html($htmlStr);
+                    ele.html($htmlStr);
                 }
             });
         }

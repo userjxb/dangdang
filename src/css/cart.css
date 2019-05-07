@@ -195,5 +195,13 @@
   font-size: 16px;
   padding-right: 90px;
 }
+.content .cart-list .info .all-const .book-count {
+  float: right;
+  font-size: 15px;
+  padding-top: 15px;
+}
+.content .cart-list .info .all-const .book-count span {
+  color: red;
+}
 
 /*# sourceMappingURL=cart.css.map */

@@ -56,7 +56,7 @@ $s9-h: 559px;
         text-indent: -9999px;
     }
     // tab选项卡
-    .tab-btns {
+    .tab-title {
         height: 35px;
         position: absolute;
         right: 15px;
@@ -70,7 +70,7 @@ $s9-h: 559px;
             font-size: 14px;
             margin-right: 4px;
             cursor: pointer;
-            &:hover {
+            &.active {
                 background: #fff;
                 border-radius: 6px 6px 0 0;
                 border: 2px solid #487a6f;
@@ -86,6 +86,7 @@ $s9-h: 559px;
 %content-ul {
     width: 800px;
     padding-top: 25px;
+    @include clearfix();
     li {
         float: left;
         width: 150px;
