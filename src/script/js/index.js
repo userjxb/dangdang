@@ -1,4 +1,4 @@
-/* 主页js效果 */
+/* 主页js效果 (下拉菜单、搜索引擎、数据渲染、懒加载)*/
 
 // 导入页头和页尾
 ;(function ($) {
@@ -264,7 +264,7 @@
             this.$readerRecommend = $(".reader-recommend .tab-content .con"); //读者推荐
             this.$phpUrl = 'http://10.31.163.63/dangdang/php/';
         }
-    
+        
         init() {
             var _this = this;
             this.drawData(this.$newbook,8); //新书上架渲染
@@ -283,13 +283,8 @@
                 success:function(data) {
                     let $htmlStr = '';
                     let ebookHtmlStr = '';
-                    // 判断要渲染几条数据
-                    var n = 0;
-                    if(num<data.length) {
-                        n = num || data.length;
-                    }else {
-                        n = data.length;
-                    }
+                    // 判断有没有传入num
+                    var n = num || data.length;
                     
                     $.each(data, function (index, value) {
                         // 电子书价格的拼接
@@ -328,4 +323,4 @@
     }
     
     new drawAll().init();
-})(jQuery);
+})(jQuery)

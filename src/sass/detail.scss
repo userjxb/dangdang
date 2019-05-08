@@ -38,6 +38,8 @@
     .pic-group {
         margin: 8px auto 0;
         position: relative;
+        height: 56px;
+        overflow: hidden;
         // 左右按钮
         .prev {
             background-color: #ddd;
@@ -45,6 +47,7 @@
             height: 56px;
             position: absolute;
             top: 0;
+            z-index: 10;
             background: #969696 url(../img/product_sprites.png) no-repeat 0 0;
         }
         .next {
@@ -55,14 +58,17 @@
         // 图片列表
         ul {
             @include clearfix();
-            width: 295px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 5;
             margin-left: 14px;
         }
         li {
             width: 56px;
             height: 56px;
             float: left;
-            margin-right: 3px;
+            margin-right: 4px;
             a {
                 display: block;
                 border: 1px solid #fff;
@@ -78,9 +84,15 @@
         position: absolute;
         left: 320px;
         top: 0;
+        z-index: 100;
         width: 400px;
         height: 400px;
         overflow: hidden;
+        img {
+            width: 800px;
+            height: 800px;
+            position: absolute;
+        }
     }
 }
 // 右边图书详情

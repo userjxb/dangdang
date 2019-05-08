@@ -94,6 +94,10 @@ $s9-h: 559px;
         margin-bottom: 16px;
         height: 250px;
         position: relative;
+        img {
+            width: 150px;
+            height: 150px;
+        }
         // 书名
         .name {
             padding: 7px 20px 0;
@@ -175,7 +179,6 @@ $s9-h: 559px;
         position: absolute;
         top: 50%;
         margin-top: -20px;
-        z-index: 2;
         cursor: pointer;
     }
     .prev {    
@@ -255,9 +258,6 @@ $s9-h: 559px;
             position: absolute;
             left: 0;
             top: 0;
-        }
-        .con:first-child {
-            z-index: 10;
         }
         // 文字描述li
         li {

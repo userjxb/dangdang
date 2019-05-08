@@ -26,6 +26,8 @@
 .book-pic .pic-group {
   margin: 8px auto 0;
   position: relative;
+  height: 56px;
+  overflow: hidden;
 }
 .book-pic .pic-group .prev, .book-pic .pic-group .next {
   background-color: #ddd;
@@ -33,6 +35,7 @@
   height: 56px;
   position: absolute;
   top: 0;
+  z-index: 10;
   background: #969696 url(../img/product_sprites.png) no-repeat 0 0;
 }
 .book-pic .pic-group .next {
@@ -40,7 +43,10 @@
   background-position: -15px 0;
 }
 .book-pic .pic-group ul {
-  width: 295px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 5;
   margin-left: 14px;
 }
 .book-pic .pic-group ul::after {
@@ -52,7 +58,7 @@
   width: 56px;
   height: 56px;
   float: left;
-  margin-right: 3px;
+  margin-right: 4px;
 }
 .book-pic .pic-group li a {
   display: block;
@@ -66,9 +72,15 @@
   position: absolute;
   left: 320px;
   top: 0;
+  z-index: 100;
   width: 400px;
   height: 400px;
   overflow: hidden;
+}
+.book-pic .bf img {
+  width: 800px;
+  height: 800px;
+  position: absolute;
 }
 
 .show-info {
