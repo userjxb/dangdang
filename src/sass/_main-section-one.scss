@@ -219,6 +219,7 @@ $list-color:#487a6f;
                     @extend %content-ul;
                     @include clearfix();
                     float: left;
+                    display: block;
                 }
             }
             // 小圆点按钮

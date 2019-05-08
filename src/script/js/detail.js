@@ -32,17 +32,18 @@
                 },
                 dataType: 'json',
                 success: function (data) {
-                    _this.$spic.find('img').attr('src',data.picurl);
-                    _this.$bpic.attr('src',data.picurl);
+                    _this.$spic.find('img').attr('src',data.picurl); //给小图片设置地址
+                    _this.$spic.find('img').attr('sid', data.sid); //给小图片设置sid
+                    _this.$bpic.attr('src',data.picurl); //给大图片设置地址
                     _this.$title.html(data.name); //书名
                     _this.$description.html(data.description); //描述
                     _this.$msg.find('.author span').html(data.author); //作者
                     _this.$msg.find('.press span').html(data.press); //出版社
                     _this.$msg.find('.press-time span').html(data.presstime); //出版时间
-                    _this.$price.find('.new-price .p').html(data.newprice); //新价格
-                    _this.$price.find('.old-price').html(data.oldprice); //旧价格
+                    _this.$price.find('.new-price .p span').html(data.newprice); //新价格
+                    _this.$price.find('.old-price span').html(data.oldprice); //旧价格
                     // 判断是否有电子书价
-                    data.ebookprice?_this.$price.find('.ebook-price .p').html(data.ebookprice): _this.$price.find('.ebook-price').html('');
+                    data.ebookprice?_this.$price.find('.ebook-price .p span').html(data.ebookprice): _this.$price.find('.ebook-price').html('');
                     // 小图
                     var liStr = '';
                     var urlArr = data.piclist.split(',');
@@ -91,7 +92,7 @@
             // 显示图片的长度
             this.showlength = 5;
 
-            // 一开始左边按钮隐藏，若小组片多于5张则右边按钮显示
+            // 一开始左边按钮隐藏
             this.$prev.hide();
 
             this.$prev.on('click',function() {
@@ -180,7 +181,7 @@
                 this.showlength++;
                 this.$prev.show();
             }
-            if($imgLi.length == this.showlength) {
+            if($imgLi.length <= this.showlength) {
                 this.$next.hide();
             }
             this.$imgUl.animate({
@@ -192,3 +193,113 @@
 })(jQuery);
 
 //购买数量的加减
+;(function($) {
+    class bookCount {
+        constructor() {
+            this.$more = $("#more");
+            this.$less = $("#less");
+            this.$num = $(".num input");
+        }
+
+        init() {
+            var _this = this;
+            // 加量
+            this.$more.on('click',function() {
+                _this.more();
+            });
+            // 减量
+            this.$less.on('click',function() {
+                _this.less();
+            });
+            // 输入改变数量
+            this.$num.on('input',function() {
+                _this.input();
+            });
+        }
+        // 加量
+        more() {
+            var n = this.$num.val();
+            n++;
+            if(n>99) {
+                n=99;
+            }
+            this.$num.val(n);
+        }
+        // 减量
+        less() {
+            var n = this.$num.val();
+            n--;
+            if(n<1) {
+                n = 1;
+            }
+            this.$num.val(n);
+        }
+        // 输入改变数量
+        input() {
+            var $reg = /^\d+$/g; //只能输入数字
+            var $value = parseInt(this.$num.val());
+            if ($reg.test($value)) {//是数字
+                if ($value >= 99) {//限定范围
+                    this.$num.val(99);
+                } else if ($value <= 0) {
+                    this.$num.val(1);
+                } else {
+                    this.$num.val($value);
+                }
+            } else {//不是数字
+                this.$num.val(1);
+            }
+        }
+    }
+    new bookCount().init();
+})(jQuery);
+
+// 添加购物车商品到cookie
+;(function($) {
+    class cart {
+        constructor() {
+            this.$addBtn = $('#add-to-cart');
+            this.$count = $(".num input")
+            this.arrsid = []; //商品的sid
+	        this.arrnum = []; //商品的数量
+        }
+
+        init() {
+            var _this = this;
+            //点击加入购物车按钮。
+            this.$addBtn.on('click', function() {
+                _this.btnClick();
+            });
+        }
+        //判断商品是第一次存还是多次存储
+        cookietoarray() {
+            if($.cookie('cookiesid') && $.cookie('cookienum')) {
+                this.arrsid = $.cookie('cookiesid').split(','); //cookie商品的sid  
+                this.arrnum = $.cookie('cookienum').split(','); //cookie商品的num
+            }
+        }
+        //点击加入购物车按钮。
+        btnClick() {
+                //判断当前的商品sid是否存在购物车(cookie)
+                //判断当前的按钮对应的商品的sid和取出的cookie里面的sid进行比较
+                
+                //获取当前的按钮对应的商品的sid
+                var $sid = this.$addBtn.parents('.detail').find('#smallpic').attr('sid');
+                this.cookietoarray();//获取已经存在的cookie值。
+                
+                if($.inArray($sid,this.arrsid) != -1) { //商品存在，数量叠加 
+                    //先取出cookie中的对应的数量值+当前添加的数量值，添加到对应的cookie中。
+                    var num = parseInt(this.arrnum[$.inArray($sid,this.arrsid)]) + parseInt(this.$count.val());
+                    this.arrnum[$.inArray($sid,this.arrsid)] = num;
+                    $.cookie('cookienum', this.arrnum.toString(),{expires:7}); //数组存入cookie
+        
+                } else { //不存在，第一次添加。将商品的id和数量存入数组，再存入cookie.
+                    this.arrsid.push($sid); //将当前的id存入数组
+                    $.cookie('cookiesid', this.arrsid.toString(),{expires:7}); //数组存入cookie
+                    this.arrnum.push(this.$count.val());
+                    $.cookie('cookienum', this.arrnum.toString(),{expires:7}); //数组存入cookie
+                }
+        }
+    }
+    new cart().init();
+})(jQuery);

@@ -268,10 +268,10 @@
         init() {
             var _this = this;
             this.drawData(this.$newbook,8); //新书上架渲染
-            this.drawData(this.$exclusive,10); //独家特供渲染
-            this.drawData(this.$chiefRecommend,10); //主编推荐渲染
+            this.drawData(this.$exclusive.eq(0),10); //独家特供渲染
+            this.drawData(this.$chiefRecommend.eq(0),10); //主编推荐渲染
             this.drawData(this.$guessYouLike,10); //猜你喜欢渲染
-            this.drawData(this.$readerRecommend,10); //读者推荐渲染
+            this.drawData(this.$readerRecommend.eq(0),10); //读者推荐渲染
         }
 
         // 数据渲染

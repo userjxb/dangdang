@@ -21,8 +21,10 @@
             }
             // 内容
             .tab-content {
-                @extend %content-ul;
-                width: 1000px;
+                ul {
+                    @extend %content-ul;
+                    width: 1000px;
+                }
             }
         } 
     }

@@ -346,16 +346,20 @@
   font-weight: bold;
 }
 
-.section-one .section-one-center .newbook .content ul, .section-two .section-two-left .exclusive ul, .section-four .section-four-left .chief-recommend ul, .section-five .section-five-left .author-stars .hot-author .left .author-books, .section-seven .guess-you-like ul, .section-eight .section-eight-left .reader-recommend .tab-content {
+.section-one .section-one-center .newbook .content ul, .section-two .section-two-left .exclusive ul, .section-four .section-four-left .chief-recommend ul, .section-five .section-five-left .author-stars .hot-author .left .author-books, .section-seven .guess-you-like ul, .section-eight .section-eight-left .reader-recommend .tab-content ul {
+  display: none;
   width: 800px;
   padding-top: 25px;
 }
-.section-one .section-one-center .newbook .content ul::after, .section-two .section-two-left .exclusive ul::after, .section-four .section-four-left .chief-recommend ul::after, .section-five .section-five-left .author-stars .hot-author .left .author-books::after, .section-seven .guess-you-like ul::after, .section-eight .section-eight-left .reader-recommend .tab-content::after {
+.section-one .section-one-center .newbook .content ul.show, .section-two .section-two-left .exclusive ul.show, .section-four .section-four-left .chief-recommend ul.show, .section-five .section-five-left .author-stars .hot-author .left .show.author-books, .section-seven .guess-you-like ul.show, .section-eight .section-eight-left .reader-recommend .tab-content ul.show {
+  display: block;
+}
+.section-one .section-one-center .newbook .content ul::after, .section-two .section-two-left .exclusive ul::after, .section-four .section-four-left .chief-recommend ul::after, .section-five .section-five-left .author-stars .hot-author .left .author-books::after, .section-seven .guess-you-like ul::after, .section-eight .section-eight-left .reader-recommend .tab-content ul::after {
   content: "";
   display: block;
   clear: both;
 }
-.section-one .section-one-center .newbook .content ul li, .section-two .section-two-left .exclusive ul li, .section-four .section-four-left .chief-recommend ul li, .section-five .section-five-left .author-stars .hot-author .left .author-books li, .section-seven .guess-you-like ul li, .section-eight .section-eight-left .reader-recommend .tab-content li {
+.section-one .section-one-center .newbook .content ul li, .section-two .section-two-left .exclusive ul li, .section-four .section-four-left .chief-recommend ul li, .section-five .section-five-left .author-stars .hot-author .left .author-books li, .section-seven .guess-you-like ul li, .section-eight .section-eight-left .reader-recommend .tab-content ul li {
   float: left;
   width: 150px;
   margin-right: 47px;
@@ -363,28 +367,28 @@
   height: 250px;
   position: relative;
 }
-.section-one .section-one-center .newbook .content ul li img, .section-two .section-two-left .exclusive ul li img, .section-four .section-four-left .chief-recommend ul li img, .section-five .section-five-left .author-stars .hot-author .left .author-books li img, .section-seven .guess-you-like ul li img, .section-eight .section-eight-left .reader-recommend .tab-content li img {
+.section-one .section-one-center .newbook .content ul li img, .section-two .section-two-left .exclusive ul li img, .section-four .section-four-left .chief-recommend ul li img, .section-five .section-five-left .author-stars .hot-author .left .author-books li img, .section-seven .guess-you-like ul li img, .section-eight .section-eight-left .reader-recommend .tab-content ul li img {
   width: 150px;
   height: 150px;
 }
-.section-one .section-one-center .newbook .content ul li .name, .section-two .section-two-left .exclusive ul li .name, .section-four .section-four-left .chief-recommend ul li .name, .section-five .section-five-left .author-stars .hot-author .left .author-books li .name, .section-seven .guess-you-like ul li .name, .section-eight .section-eight-left .reader-recommend .tab-content li .name {
+.section-one .section-one-center .newbook .content ul li .name, .section-two .section-two-left .exclusive ul li .name, .section-four .section-four-left .chief-recommend ul li .name, .section-five .section-five-left .author-stars .hot-author .left .author-books li .name, .section-seven .guess-you-like ul li .name, .section-eight .section-eight-left .reader-recommend .tab-content ul li .name {
   padding: 7px 20px 0;
   height: 18px;
   line-height: 18px;
   overflow: hidden;
 }
-.section-one .section-one-center .newbook .content ul li .name a:hover, .section-two .section-two-left .exclusive ul li .name a:hover, .section-four .section-four-left .chief-recommend ul li .name a:hover, .section-five .section-five-left .author-stars .hot-author .left .author-books li .name a:hover, .section-seven .guess-you-like ul li .name a:hover, .section-eight .section-eight-left .reader-recommend .tab-content li .name a:hover {
+.section-one .section-one-center .newbook .content ul li .name a:hover, .section-two .section-two-left .exclusive ul li .name a:hover, .section-four .section-four-left .chief-recommend ul li .name a:hover, .section-five .section-five-left .author-stars .hot-author .left .author-books li .name a:hover, .section-seven .guess-you-like ul li .name a:hover, .section-eight .section-eight-left .reader-recommend .tab-content ul li .name a:hover {
   color: #ec7814;
   text-decoration: underline;
 }
-.section-one .section-one-center .newbook .content ul li .author, .section-two .section-two-left .exclusive ul li .author, .section-four .section-four-left .chief-recommend ul li .author, .section-five .section-five-left .author-stars .hot-author .left .author-books li .author, .section-seven .guess-you-like ul li .author, .section-eight .section-eight-left .reader-recommend .tab-content li .author {
+.section-one .section-one-center .newbook .content ul li .author, .section-two .section-two-left .exclusive ul li .author, .section-four .section-four-left .chief-recommend ul li .author, .section-five .section-five-left .author-stars .hot-author .left .author-books li .author, .section-seven .guess-you-like ul li .author, .section-eight .section-eight-left .reader-recommend .tab-content ul li .author {
   padding: 0 20px;
   height: 24px;
   line-height: 24px;
   overflow: hidden;
   color: #aaa;
 }
-.section-one .section-one-center .newbook .content ul li .price, .section-two .section-two-left .exclusive ul li .price, .section-four .section-four-left .chief-recommend ul li .price, .section-five .section-five-left .author-stars .hot-author .left .author-books li .price, .section-seven .guess-you-like ul li .price, .section-eight .section-eight-left .reader-recommend .tab-content li .price {
+.section-one .section-one-center .newbook .content ul li .price, .section-two .section-two-left .exclusive ul li .price, .section-four .section-four-left .chief-recommend ul li .price, .section-five .section-five-left .author-stars .hot-author .left .author-books li .price, .section-seven .guess-you-like ul li .price, .section-eight .section-eight-left .reader-recommend .tab-content ul li .price {
   padding-left: 20px;
   line-height: 16px;
   overflow: hidden;
@@ -393,20 +397,20 @@
   position: relative;
   height: 36px;
 }
-.section-one .section-one-center .newbook .content ul li .price .new-price, .section-two .section-two-left .exclusive ul li .price .new-price, .section-four .section-four-left .chief-recommend ul li .price .new-price, .section-five .section-five-left .author-stars .hot-author .left .author-books li .price .new-price, .section-seven .guess-you-like ul li .price .new-price, .section-eight .section-eight-left .reader-recommend .tab-content li .price .new-price {
+.section-one .section-one-center .newbook .content ul li .price .new-price, .section-two .section-two-left .exclusive ul li .price .new-price, .section-four .section-four-left .chief-recommend ul li .price .new-price, .section-five .section-five-left .author-stars .hot-author .left .author-books li .price .new-price, .section-seven .guess-you-like ul li .price .new-price, .section-eight .section-eight-left .reader-recommend .tab-content ul li .price .new-price {
   color: #c30;
   float: left;
   overflow: hidden;
   font-weight: bold;
   margin-right: 12px;
 }
-.section-one .section-one-center .newbook .content ul li .price .old-price, .section-two .section-two-left .exclusive ul li .price .old-price, .section-four .section-four-left .chief-recommend ul li .price .old-price, .section-five .section-five-left .author-stars .hot-author .left .author-books li .price .old-price, .section-seven .guess-you-like ul li .price .old-price, .section-eight .section-eight-left .reader-recommend .tab-content li .price .old-price {
+.section-one .section-one-center .newbook .content ul li .price .old-price, .section-two .section-two-left .exclusive ul li .price .old-price, .section-four .section-four-left .chief-recommend ul li .price .old-price, .section-five .section-five-left .author-stars .hot-author .left .author-books li .price .old-price, .section-seven .guess-you-like ul li .price .old-price, .section-eight .section-eight-left .reader-recommend .tab-content ul li .price .old-price {
   color: #aaa;
   text-decoration: line-through;
   float: left;
   overflow: hidden;
 }
-.section-one .section-one-center .newbook .content ul li .price .ebookprice, .section-two .section-two-left .exclusive ul li .price .ebookprice, .section-four .section-four-left .chief-recommend ul li .price .ebookprice, .section-five .section-five-left .author-stars .hot-author .left .author-books li .price .ebookprice, .section-seven .guess-you-like ul li .price .ebookprice, .section-eight .section-eight-left .reader-recommend .tab-content li .price .ebookprice {
+.section-one .section-one-center .newbook .content ul li .price .ebookprice, .section-two .section-two-left .exclusive ul li .price .ebookprice, .section-four .section-four-left .chief-recommend ul li .price .ebookprice, .section-five .section-five-left .author-stars .hot-author .left .author-books li .price .ebookprice, .section-seven .guess-you-like ul li .price .ebookprice, .section-eight .section-eight-left .reader-recommend .tab-content ul li .price .ebookprice {
   position: absolute;
   left: 20px;
   top: 16px;
@@ -641,6 +645,7 @@
 }
 .section-one .section-one-center .newbook .content ul {
   float: left;
+  display: block;
 }
 .section-one .section-one-center .newbook .content ul::after {
   content: "";
@@ -1442,6 +1447,9 @@
   color: #000;
   font-size: 14px;
 }
+.section-five .section-five-left .author-stars .hot-author .left .author-books {
+  display: block;
+}
 .section-five .section-five-left .author-stars .hot-author .right {
   position: absolute;
   left: 795px;
@@ -1710,7 +1718,7 @@
 .section-eight .section-eight-left .reader-recommend .tab-head .title {
   background-position: 0 -223px;
 }
-.section-eight .section-eight-left .reader-recommend .tab-content {
+.section-eight .section-eight-left .reader-recommend .tab-content ul {
   width: 1000px;
 }
 .section-eight .section-eight-right {

@@ -84,6 +84,10 @@ $s9-h: 559px;
 }
 // 图书商品内容样式
 %content-ul {
+    display: none;
+    &.show {
+        display: block;
+    }
     width: 800px;
     padding-top: 25px;
     @include clearfix();
