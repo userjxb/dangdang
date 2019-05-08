@@ -11,6 +11,7 @@
 .topbar .send-to-where a, .topbar .welcome a, .topbar .tools-nav li a, .logo-line .my-order a, .sub-nav li a {
   color: #646464;
 }
+
 .topbar .send-to-where a:hover, .topbar .welcome a:hover, .topbar .tools-nav li a:hover, .logo-line .my-order a:hover, .sub-nav li a:hover {
   color: #ff2832;
   text-decoration: none;
@@ -25,10 +26,12 @@
   background: #f9f9f9;
   border-bottom: 1px solid #f2f2f2;
 }
+
 .topbar .send-to-where {
   float: left;
   padding-top: 2px;
 }
+
 .topbar .send-to-where a {
   display: block;
   border: 1px solid transparent;
@@ -38,6 +41,7 @@
   line-height: 22px;
   background: url(../img/head_sprite.png) no-repeat right -303px;
 }
+
 .topbar .welcome {
   float: right;
   height: 24px;
@@ -45,18 +49,22 @@
   padding: 5px 0 0 10px;
   margin-right: 4px;
 }
+
 .topbar .welcome a.login {
   color: #ff2832;
 }
+
 .topbar .tools-nav {
   float: right;
   padding-top: 2px;
 }
+
 .topbar .tools-nav::after {
   content: "";
   display: block;
   clear: both;
 }
+
 .topbar .tools-nav li {
   float: left;
   height: 22px;
@@ -64,16 +72,19 @@
   padding-top: 4px;
   background: url(../img/head_sprite.png) no-repeat left -285px;
 }
+
 .topbar .tools-nav li a {
   display: block;
   height: 21px;
   padding: 0px 7px 0px 8px;
 }
+
 .topbar .tools-nav li a.drop {
   cursor: default;
   background: url(../img/head_sprite.png) no-repeat right -307px;
   padding: 0px 23px 0px 8px;
 }
+
 .topbar .tools-nav li a.my-dangdang {
   padding: 0px 27px 0px 8px;
 }
@@ -81,13 +92,16 @@
 .logo-line {
   height: 100px;
 }
+
 .logo-line .wrapper {
   position: relative;
 }
+
 .logo-line .logo {
   float: left;
   width: 362px;
 }
+
 .logo-line .search {
   position: absolute;
   left: 362px;
@@ -95,9 +109,11 @@
   margin-top: 20px;
   height: 48px;
 }
+
 .logo-line .search form {
   position: relative;
 }
+
 .logo-line .search form input.text {
   width: 398px;
   height: 18px;
@@ -107,6 +123,7 @@
   font-size: 12px;
   outline: 0;
 }
+
 .logo-line .search form ul {
   background: #fff;
   border: 1px solid #dcdcdc;
@@ -116,16 +133,19 @@
   display: none;
   padding-top: 5px;
 }
+
 .logo-line .search form ul li {
   display: block;
   padding-left: 10px;
   height: 22px;
   line-height: 22px;
 }
+
 .logo-line .search form ul li:hover {
   color: red;
   background: #f5f5f5;
 }
+
 .logo-line .search form input.button {
   width: 48px;
   height: 40px;
@@ -136,6 +156,7 @@
   left: 517px;
   top: 0;
 }
+
 .logo-line .search form span {
   position: absolute;
   top: 0px;
@@ -150,6 +171,7 @@
   cursor: pointer;
   background-color: #f6f6f6;
 }
+
 .logo-line .search form span i {
   width: 13px;
   height: 7px;
@@ -159,6 +181,7 @@
   left: 88px;
   top: 16px;
 }
+
 .logo-line .shopping-cart, .logo-line .my-order {
   height: 36px;
   position: absolute;
@@ -166,6 +189,7 @@
   border: 2px solid #dcdcdc;
   font: 14px/36px "Microsoft Yahei";
 }
+
 .logo-line .shopping-cart {
   width: 107px;
   height: 36px;
@@ -173,25 +197,30 @@
   right: 88px;
   background: url(../img/icon_cart.png) 5px 0 no-repeat #ff2832;
 }
+
 .logo-line .shopping-cart:hover {
   background-position: 5px -36px;
   border-color: #dcdcdc;
   background-color: #f6f6f6;
 }
+
 .logo-line .shopping-cart:hover a {
   color: #ff2832;
 }
+
 .logo-line .shopping-cart a {
   color: #fff;
   padding-left: 35px;
   width: 72px;
   display: inline-block;
 }
+
 .logo-line .shopping-cart a b {
   padding-left: 3px;
   font-family: Arial;
   font-weight: bold;
 }
+
 .logo-line .my-order {
   width: 86px;
   padding: 0;
@@ -206,9 +235,11 @@
   height: 40px;
   border-bottom: 3px solid #ff2832;
 }
+
 .nav-top li {
   float: left;
 }
+
 .nav-top li.all {
   width: 200px;
   margin-right: 17px;
@@ -216,12 +247,14 @@
   background: #ff2832;
   position: relative;
 }
+
 .nav-top li.all .dropdown {
   padding: 0 0 0 20px;
   width: 171px;
   background: url(../img/head_sprite.png) no-repeat 161px -567px;
   color: #fff;
 }
+
 .nav-top li.all .dropmenu {
   width: 200px;
   height: 0;
@@ -232,12 +265,20 @@
   top: 43px;
   z-index: 100;
 }
+
 .nav-top li.all .dropmenu .list {
   height: 32px;
   padding-left: 20px;
   color: #323232;
   font: 14px/32px "Microsoft Yahei";
 }
+
+.nav-top li.all .dropmenu .list:hover {
+  background: #ff2832;
+  color: #fff;
+  cursor: pointer;
+}
+
 .nav-top li a {
   display: block;
   font: 14px/40px "Microsoft Yahei";
@@ -250,6 +291,7 @@
   height: 31px;
   background: #f5f5f5;
 }
+
 .sub-nav li {
   float: left;
   padding: 0 15px;
@@ -258,8 +300,7 @@
   line-height: 30px;
   background: url(../img/sub_line_bg.png) right center no-repeat;
 }
+
 .sub-nav li a {
   font-size: 12px;
 }
-
-/*# sourceMappingURL=header.css.map */

@@ -7,7 +7,7 @@
     $(".nav-top").load("header.html .nav-top");    
 })(jQuery);
 
-// 发送接收数据
+
 ;(function($) {
     class details {
         constructor() {
@@ -20,7 +20,7 @@
             this.$price = $('.show-info .price'); //价格
             this.$phpUrl = 'http://10.31.163.63/dangdang/php/';
         }
-
+        
         init() {
             var _this = this;
             var $sid = location.search.substring(1).split('=')[1];
@@ -54,11 +54,12 @@
                         _this.$picList.html(liStr);
                     }
                     // 计算ul宽度
-                    this.liWidth = 60;
-                    _this.$picList.width(this.liWidth*urlArr.length);
+                    var liWidth = _this.$picList.find("li").outerWidth(true);
+                    _this.$picList.width(liWidth*urlArr.length);
                 }
             });
         }
+        // 发送接收数据
     }
     new details().init();
 })(jQuery);
@@ -74,7 +75,6 @@
             this.$bf = $('.bf'); // 大图的父盒子
             // 小图 和 左右按钮
             this.$imgUl = $('.pic-group ul');
-            this.$imgLi = $('.pic-group ul li');
             this.$prev = $('.pic-group .prev');
             this.$next = $('.pic-group .next');
         }
@@ -269,6 +269,7 @@
             //点击加入购物车按钮。
             this.$addBtn.on('click', function() {
                 _this.btnClick();
+                window.open("http://10.31.163.63/dangdang/src/cart.html");
             });
         }
         //判断商品是第一次存还是多次存储

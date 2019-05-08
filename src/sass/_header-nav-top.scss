@@ -35,6 +35,11 @@
                     color: #323232;
                     font: 14px/32px "Microsoft Yahei";
                 }
+                .list:hover {
+                    background: #ff2832;
+                    color: #fff;
+                    cursor: pointer;
+                }
             }
         }
         a {

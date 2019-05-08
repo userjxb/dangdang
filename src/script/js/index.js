@@ -1,9 +1,32 @@
-/* 主页js效果 (下拉菜单、搜索引擎、数据渲染、懒加载)*/
+/* 主页js效果 (搜索引擎)*/
 
 // 导入页头和页尾
 ;(function ($) {
     $(".header").load("header.html"); // 引入头部html
     $(".footer").load("footer.html"); // 引入尾部html
+})(jQuery);
+
+// 下拉菜单
+;(function ($) {
+    class dropmenu {
+        constructor() {
+            this.$header = $(".header");
+        }
+
+        init() {
+            this.$header.on("mouseover",".all",function() {
+                $(".dropmenu").stop().animate({
+                    height: 512
+                },200);
+            });
+            this.$header.on("mouseout",".all",function() {
+                $(".dropmenu").stop().animate({
+                    height: 0
+                },200);
+            });
+        }
+    }
+    new dropmenu().init();
 })(jQuery);
 
 //banner简单轮播图
@@ -253,7 +276,7 @@
 
 })(jQuery);
 
-// 数据渲染
+// 数据渲染、懒加载
 ;(function ($) {
     class drawAll {
         constructor() {
@@ -267,14 +290,31 @@
         
         init() {
             var _this = this;
+            // 第一个tab的渲染
             this.drawData(this.$newbook,8); //新书上架渲染
             this.drawData(this.$exclusive.eq(0),10); //独家特供渲染
             this.drawData(this.$chiefRecommend.eq(0),10); //主编推荐渲染
             this.drawData(this.$guessYouLike,10); //猜你喜欢渲染
             this.drawData(this.$readerRecommend.eq(0),10); //读者推荐渲染
+            // 其他tab敷衍渲染
+            this.$exclusive.each(function(index) {
+                if(index>0) {
+                    _this.drawData($(this),index)
+                }
+            });
+            this.$chiefRecommend.each(function(index) {
+                if(index>0) {
+                    _this.drawData($(this),index)
+                }
+            });
+            this.$readerRecommend.each(function(index) {
+                if(index>0) {
+                    _this.drawData($(this),index*4)
+                }
+            });
         }
 
-        // 数据渲染
+        // 渲染数据和懒加载
         drawData(ele,num) {
             var _this = this;
             $.ajax({
@@ -296,7 +336,7 @@
                         if(index<n) {
                             $htmlStr += `<li>
                                             <a href="detail.html?sid=${value.sid}" target="_blank">
-                                                <img src=${value.picurl}>
+                                                <img class="lazy" data-original=${value.picurl}>
                                             </a>
                                             <p class="name">
                                                 <a href="detail.html?sid=${value.sid}">${value.name}</a>
@@ -317,10 +357,15 @@
                         }
                     });
                     ele.html($htmlStr);
+                    // 懒加载
+                    ele.find('.lazy').lazyload({
+                        effect: "fadeIn"
+                    });
                 }
             });
+            
         }
     }
     
     new drawAll().init();
-})(jQuery)
+})(jQuery);

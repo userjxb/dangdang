@@ -225,6 +225,14 @@
                     font-size: 12px;
                     padding: 15px 20px 15px 65px;
                 }
+                .del-all {
+                    float: left;
+                    padding-top: 18px;
+                    a:hover {
+                        text-decoration: underline;
+                        color: #ff2832;
+                    }
+                }
                 .all-price {
                     float: right;
                     @extend .f5;

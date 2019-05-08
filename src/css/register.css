@@ -16,6 +16,7 @@ body {
   background-color: #ebeeef;
   margin: 40px 0;
 }
+
 .reg-body .reg-box {
   width: 950px;
   height: 574px;
@@ -25,12 +26,14 @@ body {
   right: -10px;
   box-shadow: -1px 1px 1px #e8ebec;
 }
+
 .reg-body .reg-box .title {
   height: 74px;
   border-bottom: solid 1px #eceef2;
   padding-right: 15px;
   margin: 0 10px;
 }
+
 .reg-body .reg-box .title span {
   display: inline-block;
   width: 135px;
@@ -47,18 +50,22 @@ body {
   color: #464646;
   margin-left: 6px;
 }
+
 .reg-body .reg-box form {
   padding: 45px 0 25px;
   position: relative;
 }
+
 .reg-body .reg-box form dl {
   margin-bottom: 10px;
 }
+
 .reg-body .reg-box form dl::after {
   content: "";
   display: block;
   clear: both;
 }
+
 .reg-body .reg-box form dt {
   float: left;
   font-size: 14px;
@@ -68,10 +75,12 @@ body {
   color: #646464;
   padding: 8px 10px 30px 0px;
 }
+
 .reg-body .reg-box form dd {
   float: left;
   margin-left: 5px;
 }
+
 .reg-body .reg-box form dd input {
   width: 290px;
   height: 18px;
@@ -82,34 +91,42 @@ body {
   border-radius: 2px;
   color: #505050;
 }
+
 .reg-body .reg-box form dd input:focus {
   border: 1px solid #969696;
 }
+
 .reg-body .reg-box form dd p {
   color: #787878;
   padding-left: 10px;
   margin-top: 8px;
 }
+
 .reg-body .reg-box form .test-code input {
   width: 182px;
   margin-right: 10px;
 }
+
 .reg-body .reg-box form .test-code img {
   width: 84px;
   height: 38px;
   vertical-align: top;
 }
+
 .reg-body .reg-box form .agree {
   text-align: center;
   margin-top: 30px;
 }
+
 .reg-body .reg-box form .agree input {
   vertical-align: middle;
   margin-right: 10px;
 }
+
 .reg-body .reg-box form .agree a {
   color: #1a66b3;
 }
+
 .reg-body .reg-box form .reg-btn {
   display: inline-block;
   font-size: 20px;
@@ -126,5 +143,3 @@ body {
   margin-left: -90px;
   bottom: -50px;
 }
-
-/*# sourceMappingURL=register.css.map */

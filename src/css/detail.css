@@ -9,13 +9,16 @@
   padding: 0 20px 30px 0;
   position: relative;
 }
+
 .book-pic .spic {
   position: relative;
 }
+
 .book-pic .spic img {
   width: 320px;
   height: 320px;
 }
+
 .book-pic .spic .sf {
   display: none;
   position: absolute;
@@ -23,12 +26,14 @@
   top: 0px;
   background: url(../img/zoom_pup.png);
 }
+
 .book-pic .pic-group {
   margin: 8px auto 0;
   position: relative;
   height: 56px;
   overflow: hidden;
 }
+
 .book-pic .pic-group .prev, .book-pic .pic-group .next {
   background-color: #ddd;
   width: 14px;
@@ -38,10 +43,12 @@
   z-index: 10;
   background: #969696 url(../img/product_sprites.png) no-repeat 0 0;
 }
+
 .book-pic .pic-group .next {
   right: 0;
   background-position: -15px 0;
 }
+
 .book-pic .pic-group ul {
   position: absolute;
   left: 0;
@@ -49,23 +56,27 @@
   z-index: 5;
   margin-left: 14px;
 }
+
 .book-pic .pic-group ul::after {
   content: "";
   display: block;
   clear: both;
 }
+
 .book-pic .pic-group li {
   width: 56px;
   height: 56px;
   float: left;
   margin-right: 4px;
 }
+
 .book-pic .pic-group li a {
   display: block;
   border: 1px solid #fff;
   width: 54px;
   height: 54px;
 }
+
 .book-pic .bf {
   display: none;
   border: 1px solid #f5f5f5;
@@ -77,6 +88,7 @@
   height: 400px;
   overflow: hidden;
 }
+
 .book-pic .bf img {
   width: 800px;
   height: 800px;
@@ -89,65 +101,80 @@
   font: 12px "Verdana","Simsun";
   color: #646464;
 }
+
 .show-info .head {
   font-size: 18px;
   padding-bottom: 20px;
   border-bottom: 1px solid #f5f5f5;
   color: #323232;
 }
+
 .show-info .head .title {
   margin-bottom: 10px;
 }
+
 .show-info .msg {
   margin-top: 10px;
 }
+
 .show-info .msg::after {
   content: "";
   display: block;
   clear: both;
 }
+
 .show-info .msg div {
   float: left;
   padding: 0 10px;
 }
+
 .show-info .msg span {
   color: #214c90;
 }
+
 .show-info .price {
   background-color: #ebebeb;
   padding: 0 0 10px 10px;
   margin-top: 20px;
   line-height: 28px;
 }
+
 .show-info .price::after {
   content: "";
   display: block;
   clear: both;
 }
+
 .show-info .price .new-price {
   float: left;
 }
+
 .show-info .price .new-price .p {
   font-size: 26px;
   color: #e52222;
 }
+
 .show-info .price .old-price {
   float: left;
   margin: 30px 0 0 10px;
   text-decoration: line-through;
   color: #969696;
 }
+
 .show-info .price .ebook-price {
   float: left;
   margin-left: 20px;
 }
+
 .show-info .price .ebook-price .p {
   color: #214c90;
   font-size: 26px;
 }
+
 .show-info .buy-box {
   margin-top: 30px;
 }
+
 .show-info .buy-box .num {
   float: left;
   height: 34px;
@@ -158,6 +185,7 @@
   text-align: center;
   position: relative;
 }
+
 .show-info .buy-box .num input {
   width: 38px;
   height: 32px;
@@ -167,6 +195,7 @@
   text-align: center;
   outline: 0;
 }
+
 .show-info .buy-box .num #more, .show-info .buy-box .num #less {
   position: absolute;
   right: 0;
@@ -179,14 +208,17 @@
   background-color: #646464;
   margin-left: 6px;
 }
+
 .show-info .buy-box .num #more {
   top: 0;
   background-position: -37px 0;
 }
+
 .show-info .buy-box .num #less {
   top: 17px;
   background-position: -37px -17px;
 }
+
 .show-info .buy-box .buy-btn a {
   height: 36px;
   line-height: 36px;
@@ -199,5 +231,3 @@
   color: #fff;
   background-color: #ff2832;
 }
-
-/*# sourceMappingURL=detail.css.map */
