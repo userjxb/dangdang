@@ -6,6 +6,29 @@
     $(".footer").load("footer.html"); // 引入尾部html
 })(jQuery);
 
+// 显示购物车里的商品数量
+;(function ($) {
+    class showAmount {
+        constructor() {
+            this.amount = 0;
+            this.timer = null;
+        }
+
+        init() {
+            var _this = this;
+            this.timer = setTimeout(function() {
+                // 获取商品总量cookie
+                if($.cookie('amount')) {
+                    _this.amount = parseInt($.cookie('amount')); //商品的总量
+                }
+                $(".shopping-cart b").html(_this.amount); // 赋值购物车里的商品总量
+                clearTimeout(_this.timer); //清除定时器
+            },100);
+        }
+    }
+    new showAmount().init();
+})(jQuery);
+
 // 下拉菜单
 ;(function ($) {
     class dropmenu {

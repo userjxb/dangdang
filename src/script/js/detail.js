@@ -261,17 +261,29 @@
             this.$addBtn = $('#add-to-cart');
             this.$count = $(".num input")
             this.arrsid = []; //商品的sid
-	        this.arrnum = []; //商品的数量
+            this.arrnum = []; //商品的数量
+            this.amount = 0;  //商品的总量
+            this.timer = null;
         }
 
         init() {
             var _this = this;
-            //点击加入购物车按钮。
+            // 一开始就显示购物车里商品的总量(利用setTimeout延迟获取元素)
+            this.timer = setTimeout(function() {
+                // 获取商品总量cookie
+                if($.cookie('amount')) {
+                    _this.amount = parseInt($.cookie('amount')); //商品的总量
+                }
+                $(".shopping-cart b").html(_this.amount); // 赋值购物车里的商品总量
+                clearTimeout(_this.timer); //清除定时器
+            },100);
+            // 点击加入购物车
             this.$addBtn.on('click', function() {
                 _this.btnClick();
+                $(".shopping-cart b").html(_this.amount); //改变商品总量
             });
         }
-        //判断商品是第一次存还是多次存储
+        //获取cookie值
         cookietoarray() {
             if($.cookie('cookiesid') && $.cookie('cookienum')) {
                 this.arrsid = $.cookie('cookiesid').split(','); //cookie商品的sid  
@@ -280,9 +292,6 @@
         }
         //点击加入购物车按钮。
         btnClick() {
-                //判断当前的商品sid是否存在购物车(cookie)
-                //判断当前的按钮对应的商品的sid和取出的cookie里面的sid进行比较
-                
                 //获取当前的按钮对应的商品的sid
                 var $sid = this.$addBtn.parents('.detail').find('#smallpic').attr('sid');
                 this.cookietoarray();//获取已经存在的cookie值。
@@ -292,12 +301,15 @@
                     var num = parseInt(this.arrnum[$.inArray($sid,this.arrsid)]) + parseInt(this.$count.val());
                     this.arrnum[$.inArray($sid,this.arrsid)] = num;
                     $.cookie('cookienum', this.arrnum.toString(),{expires:7}); //数组存入cookie
-        
+                    this.amount += parseInt(this.$count.val());
+                    $.cookie('amount', this.amount,{expires:7}); //总量存入cookie
                 } else { //不存在，第一次添加。将商品的id和数量存入数组，再存入cookie.
                     this.arrsid.push($sid); //将当前的id存入数组
                     $.cookie('cookiesid', this.arrsid.toString(),{expires:7}); //数组存入cookie
                     this.arrnum.push(this.$count.val());
                     $.cookie('cookienum', this.arrnum.toString(),{expires:7}); //数组存入cookie
+                    this.amount += parseInt(this.$count.val());
+                    $.cookie('amount', this.amount,{expires:7}); //总量存入cookie
                 }
         }
     }
