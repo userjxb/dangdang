@@ -125,10 +125,6 @@
   clear: both;
 }
 
-.content .cart-list .info ul:first-child {
-  display: none;
-}
-
 .content .cart-list .info li {
   float: left;
 }

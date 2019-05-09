@@ -7,7 +7,7 @@
     $(".nav-top").load("header.html .nav-top");    
 })(jQuery);
 
-
+// 数据渲染
 ;(function($) {
     class details {
         constructor() {
@@ -64,7 +64,7 @@
     new details().init();
 })(jQuery);
 
-//放大镜效果
+// 放大镜效果
 ;(function($) {
     class fdj {
         constructor() {
@@ -269,7 +269,6 @@
             //点击加入购物车按钮。
             this.$addBtn.on('click', function() {
                 _this.btnClick();
-                window.open("http://10.31.163.63/dangdang/src/cart.html");
             });
         }
         //判断商品是第一次存还是多次存储
