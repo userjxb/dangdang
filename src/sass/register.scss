@@ -22,6 +22,22 @@ body {
 .head {
     padding: 20px 0;
     border-bottom: 3px solid #f07700;
+    .login {
+        display: block;
+        width: 130px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        font-size: 14px;
+        border-radius: 20px;
+        color: #fff;
+        background: #ff2832;
+        float: right;
+        margin-top: 10px;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 // 注册盒子
 .reg-body {
@@ -29,7 +45,7 @@ body {
     margin: 40px 0;
     .reg-box {
         width: 950px;
-        height: 574px;
+        height: 622px;
         background: #fff;
         position: relative;
         top: -10px;
@@ -98,29 +114,37 @@ body {
                     padding-left: 10px;
                     margin-top: 8px;
                 }
-            }
-            // 验证码
-            .test-code {
-                input {
-                    width: 182px;
-                    margin-right: 10px;
-                }
-                img {
-                    width: 84px;
-                    height: 38px;
-                    vertical-align: top;
+                label {
+                    margin-left: 10px;
+                    &.error {
+                        color: red;
+                    }
+                    &.success {
+                        color: green;
+                    }
                 }
             }
             // 同意协议
             .agree {
                 text-align: center;
                 margin-top: 30px;
+                position: relative;
                 input {
                     vertical-align: middle;
                     margin-right: 10px;
                 }
                 a {
                     color: #1a66b3;
+                }
+                // 提示信息
+                label {
+                    color: red;
+                    position: absolute;
+                    right: 120px;
+                    top: 0;
+                    &.success {
+                        visibility: hidden;
+                    }
                 }
             }
             // 注册按钮
@@ -139,6 +163,8 @@ body {
                 left: 50%;
                 margin-left: -90px;
                 bottom: -50px;
+                border: 0;
+                outline: 0;
             }
         }
     }

@@ -77,6 +77,10 @@
             }
         }
     }
+    // 欢迎购物提示
+    .welcome {
+        @extend .login-tip;
+    }
     // 购物车列表
     .cart-list {
         margin-top: 10px;

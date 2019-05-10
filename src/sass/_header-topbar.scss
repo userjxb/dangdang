@@ -36,6 +36,19 @@
                 color: $theme-color;
             }
         }
+        .welcomeWord {
+            span {
+                font-size: 14px;
+                font-weight: bold;
+                color: $theme-color;
+            }
+            a {
+                color: cornflowerblue;
+            }
+            a:hover {
+                text-decoration: underline;
+            }
+        }
     }
     // 导航
     .tools-nav {

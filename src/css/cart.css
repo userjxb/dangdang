@@ -37,7 +37,7 @@
   margin: 0 auto;
 }
 
-.content .login-tip {
+.content .login-tip, .content .welcome {
   margin: 10px 0;
   height: 34px;
   line-height: 34px;
@@ -45,7 +45,7 @@
   border: 1px solid #ffecec;
 }
 
-.content .login-tip .icon {
+.content .login-tip .icon, .content .welcome .icon {
   width: 34px;
   height: 34px;
   display: inline-block;
@@ -53,7 +53,7 @@
   vertical-align: top;
 }
 
-.content .login-tip a {
+.content .login-tip a, .content .welcome a {
   width: 62px;
   height: 22px;
   line-height: 22px;
@@ -65,7 +65,7 @@
   margin: 0 10px;
 }
 
-.content .login-tip a:hover {
+.content .login-tip a:hover, .content .welcome a:hover {
   text-decoration: underline;
 }
 

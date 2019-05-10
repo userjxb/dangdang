@@ -12,6 +12,24 @@ body {
   border-bottom: 3px solid #f07700;
 }
 
+.head .login {
+  display: block;
+  width: 130px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  border-radius: 20px;
+  color: #fff;
+  background: #ff2832;
+  float: right;
+  margin-top: 10px;
+}
+
+.head .login:hover {
+  text-decoration: underline;
+}
+
 .reg-body {
   background-color: #ebeeef;
   margin: 40px 0;
@@ -19,7 +37,7 @@ body {
 
 .reg-body .reg-box {
   width: 950px;
-  height: 574px;
+  height: 622px;
   background: #fff;
   position: relative;
   top: -10px;
@@ -102,20 +120,22 @@ body {
   margin-top: 8px;
 }
 
-.reg-body .reg-box form .test-code input {
-  width: 182px;
-  margin-right: 10px;
+.reg-body .reg-box form dd label {
+  margin-left: 10px;
 }
 
-.reg-body .reg-box form .test-code img {
-  width: 84px;
-  height: 38px;
-  vertical-align: top;
+.reg-body .reg-box form dd label.error {
+  color: red;
+}
+
+.reg-body .reg-box form dd label.success {
+  color: green;
 }
 
 .reg-body .reg-box form .agree {
   text-align: center;
   margin-top: 30px;
+  position: relative;
 }
 
 .reg-body .reg-box form .agree input {
@@ -125,6 +145,17 @@ body {
 
 .reg-body .reg-box form .agree a {
   color: #1a66b3;
+}
+
+.reg-body .reg-box form .agree label {
+  color: red;
+  position: absolute;
+  right: 120px;
+  top: 0;
+}
+
+.reg-body .reg-box form .agree label.success {
+  visibility: hidden;
 }
 
 .reg-body .reg-box form .reg-btn {
@@ -142,4 +173,6 @@ body {
   left: 50%;
   margin-left: -90px;
   bottom: -50px;
+  border: 0;
+  outline: 0;
 }

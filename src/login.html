@@ -16,7 +16,7 @@
 <body>
     <div class="login-page">
         <div class="head">
-            <a href="http://www.dangdang.com">
+            <a href="index123.html">
                 <img src="img/logo.png">
             </a>
         </div>
@@ -24,15 +24,15 @@
             <form action="">
                 <p class="title">密码登录</p>
                 <p class="username">
-                    <label for="username"></label><input type="text" id="username" placeholder="邮箱/昵称/手机号码">
+                    <label for="username"></label><input type="text" id="account" placeholder="邮箱/昵称/手机号码">
                 </p>
                 <p class="tip"></p>
                 <p class="password">
-                    <label for="password"></label><input type="text" id="password" placeholder="密码">
+                    <label for="password"></label><input type="password" id="password" placeholder="密码">
                 </p>
                 <p class="tip"></p>
                 <p class="auto-login">
-                    <input type="checkbox" id="auto"><label for="auto">一周内自动登录</label>
+                    <input type="checkbox" id="auto" checked="checked"><label for="auto">一周内自动登录</label>
                 </p>
                 <p class="login-btn">
                     <a href="javascript:;">登 录</a>
@@ -45,9 +45,9 @@
     </div>
     <div class="footer"></div>
 
-    <script>
-        $(".footer").load("footer.html"); // 引入尾部html
-    </script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="script/thirdplugins/jquery.cookie.js"></script>
+    <script src="script/js/login.js"></script>
 </body>
 
 </html>

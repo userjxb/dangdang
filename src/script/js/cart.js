@@ -1,4 +1,37 @@
-/* 购物车页面js (默认全选、判断是否登录)*/
+/* 购物车页面js (默认全选)*/
+
+// 判断是否登录
+;(function ($) {
+    class isLogined {
+        constructor() {
+            this.$account = $.cookie('account');
+        }
+
+        init() {
+            // 如果cookie不存在，则请求登录
+            if(this.$account) {
+                $('.login-tip').hide();
+                $('.welcome').show();
+            }else {
+                $('.login-tip').show();
+                $('.welcome').hide();
+            }
+            // 退出登录
+            this.exit();
+        }
+        // 退出登录
+        exit() {
+            $('.exit-btn').on('click',function() {
+                if(confirm("你确定要退出吗？")) {
+                    $.cookie("account","null",{expires:-1});
+                    $('.login-tip').show();
+                    $('.welcome').hide();
+                }
+            });
+        }
+    }
+    new isLogined().init();
+})(jQuery);
 
 // 数据渲染+cookie+操作
 ;(function() {
