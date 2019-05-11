@@ -153,12 +153,12 @@
 }
 
 .logo-line .search form ul {
+  display: none;
   background: #fff;
   border: 1px solid #dcdcdc;
   position: absolute;
   width: 100%;
   z-index: 100;
-  display: none;
   padding-top: 5px;
 }
 
@@ -542,16 +542,16 @@
   border-width: 1px 0;
 }
 
+.section-one .section-one-left .book-classify .content li .hide-menu {
+  display: none;
+}
+
 .section-one .section-one-left .book-classify .content li:hover {
   border-color: #487a6f;
 }
 
 .section-one .section-one-left .book-classify .content li:hover dl {
   border-bottom-color: transparent;
-}
-
-.section-one .section-one-left .book-classify .content li:hover .hide-menu {
-  display: block;
 }
 
 .section-one .section-one-left .book-classify .content > li > dl {

@@ -35,14 +35,14 @@ $list-color:#487a6f;
                 li {
                     border: 1px solid transparent;
                     border-width: 1px 0;
+                    .hide-menu {
+                        display: none;
+                    }
                 }
                 li:hover{
                     border-color: #487a6f;
                     dl {
                         border-bottom-color: transparent;
-                    }
-                    .hide-menu {
-                        display: block;
                     }
                 }
                 // 一级分类导航

@@ -13,7 +13,7 @@
             echo 'false';
         }
     }
-
+    // 判断用户名是否被注册
     if(isset($_POST['username'])) {
         $username = $_POST['username'];
 
@@ -25,7 +25,7 @@
             echo 'false';
         }
     }
-
+    // 判断邮箱是否被注册
     if(isset($_POST['email'])) {
         $email = $_POST['email'];
 

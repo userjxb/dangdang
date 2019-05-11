@@ -32,12 +32,12 @@
             }
             // 搜索结果
             ul {
+                display: none;
                 background: #fff;
                 border: 1px solid #dcdcdc;
                 position: absolute;
                 width: 100%;
                 z-index: 100;
-                display: none;
                 padding-top: 5px;
                 li {
                     display: block;

@@ -1,4 +1,4 @@
-/* 购物车页面js (默认全选)*/
+/* 购物车页面js */
 
 // 判断是否登录
 ;(function ($) {
@@ -107,6 +107,12 @@
         // 全选操作
         allSelect() {
             var _this = this;
+            // 延迟获取元素默认全选
+            var allSelectTimer = setTimeout(function() {
+                $('.book-item:visible').find('.single').prop('checked',$("#all").prop('checked'));
+                _this.compute(); //总计
+                clearTimeout(allSelectTimer);
+            },100);
             // 全选按钮
             $('#all').on("change",function() {
                 $('.book-item:visible').find('.single').prop('checked',$(this).prop('checked'));

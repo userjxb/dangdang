@@ -1,13 +1,13 @@
-/* 主页js效果 (搜索引擎)*/
+/* 主页js效果 */
 
 // 导入页头和页尾
-;(function ($) {
+; (function ($) {
     $(".header").load("header.html"); // 引入头部html
     $(".footer").load("footer.html"); // 引入尾部html
 })(jQuery);
 
 // 判断是否登录
-;(function ($) {
+; (function ($) {
     class isLogined {
         constructor() {
             this.timer = null;
@@ -18,11 +18,11 @@
         init() {
             var _this = this;
             // 延迟取元素
-            this.timer = setTimeout(function() {
+            this.timer = setTimeout(function () {
                 // 如果cookie存在，则显示欢迎，否则请求登录
                 _this.showInfo();
                 clearTimeout(_this.timer);
-            },150);
+            }, 150);
             // 获取昵称
             this.getPetName();
             // 退出登录
@@ -30,11 +30,11 @@
         }
         // 如果cookie存在，则显示欢迎，否则请求登录
         showInfo() {
-            if(this.$account) {
+            if (this.$account) {
                 $('.pleaseLogin').hide();
                 $('.welcomeWord').find('span').html(this.$account);
                 $('.welcomeWord').show();
-            }else {
+            } else {
                 $('.pleaseLogin').show();
                 $('.welcomeWord').hide();
             }
@@ -49,16 +49,16 @@
                     account: this.$account
                 },
                 dataType: "json",
-            }).done(function(data) {
+            }).done(function (data) {
                 _this.$account = data.username;
             });
         }
         // 退出登录
         exit() {
             var _this = this;
-            $('.header').on('click','.exit',function() {
-                if(confirm("你确定要退出吗？")) {
-                    $.cookie("account","null",{expires:-1});
+            $('.header').on('click', '.exit', function () {
+                if (confirm("你确定要退出吗？")) {
+                    $.cookie("account", "null", { expires: -1 });
                     $('.pleaseLogin').show();
                     $('.welcomeWord').hide();
                 }
@@ -68,8 +68,81 @@
     new isLogined().init();
 })(jQuery);
 
+// 搜索引擎(键盘上下键选择内容)
+; (function ($) {
+    class search {
+        constructor() {
+            this.phpUrl = "http://10.31.163.63/dangdang/php/";
+        }
+
+        init() {
+            var _this = this;
+            // 每次输入获取数据
+            $(".header").on("input", ".search .text", function () {
+                _this.ajax();
+            });
+            // 获得焦点,下拉提示不为空时显示
+            $(".header").on("focus", ".search .text", function () {
+                if (!$(".search-content").is(':empty')) {
+                    $(".search-content").show();
+                }
+            });
+            // 失去焦点，隐藏下拉提示
+            $(".header").on("blur", ".search .text", function () {
+                $(".search-content").hide();
+            });
+        }
+        // 获取数据和处理
+        ajax() {
+            var _this = this;
+            var $content = $(".search-content");
+            $.ajax({
+                type: 'get',
+                url: this.phpUrl + 'searchData.php',
+                data: {
+                    keyword: $(".search .text").val()
+                }
+            }).done(function (data) {
+                // 数据处理
+                var strData = data.split(";")[0];
+                var arrData = strData.split('=');
+                var jsonStr = '';
+                $.each(arrData, function (index, value) {
+                    console.log(value);
+                    if (_this.isJsonFormat(value)) {
+                        jsonStr = value;
+                    }
+                });
+                // console.log(arrData);
+                var jsonData = $.parseJSON(jsonStr)[2];
+                // 内容不为空则显示下拉菜单
+                if (jsonData.join() != '') {
+                    var dom = '';
+                    $.each(jsonData, function (index, value) {
+                        $.each(value, function (i, v) {
+                            dom += `<li>${i}</li>`;
+                        });
+                    });
+                    $content.html(dom).show();
+                }
+            });
+        }
+        // 判断一个字符串是否为JSON格式
+        isJsonFormat(str) {
+            try {
+                $.parseJSON(str);
+            } catch (e) {
+                return false;
+            }
+            return true;
+        }
+
+    }
+    new search().init();
+})(jQuery);
+
 // 显示购物车里的商品数量
-;(function ($) {
+; (function ($) {
     class showAmount {
         constructor() {
             this.amount = 0;
@@ -78,44 +151,52 @@
 
         init() {
             var _this = this;
-            this.timer = setTimeout(function() {
+            this.timer = setTimeout(function () {
                 // 获取商品总量cookie
-                if($.cookie('amount')) {
+                if ($.cookie('amount')) {
                     _this.amount = parseInt($.cookie('amount')); //商品的总量
                 }
                 $(".shopping-cart b").html(_this.amount); // 赋值购物车里的商品总量
                 clearTimeout(_this.timer); //清除定时器
-            },100);
+            }, 100);
         }
     }
     new showAmount().init();
 })(jQuery);
 
 // 下拉菜单
-;(function ($) {
+; (function ($) {
     class dropmenu {
         constructor() {
             this.$header = $(".header");
         }
 
         init() {
-            this.$header.on("mouseover",".all",function() {
+            this.$header.on("mouseover", ".all", function () {
                 $(".dropmenu").stop().animate({
                     height: 512
-                },200);
+                }, 200);
             });
-            this.$header.on("mouseout",".all",function() {
+            this.$header.on("mouseout", ".all", function () {
                 $(".dropmenu").stop().animate({
                     height: 0
-                },200);
+                }, 200);
             });
+            $('.list-select').hover(function () {
+                    // over
+                    $(".hide-menu").show();
+                }, function () {
+                    // out
+                    $(".hide-menu").hide();
+                }
+            );
         }
     }
     new dropmenu().init();
 })(jQuery);
 
 //banner简单轮播图
-;(function ($) {
+; (function ($) {
     class Silder {
         constructor() {
             this.$silderBox = $(".slider-tab"); //轮播图盒子
@@ -130,10 +211,10 @@
             // 自动轮播
             this.autoplay();
             // 鼠标移入关闭自动轮播、鼠标移出开启自动轮播
-            this.$silderBox.on("mouseover",function() {
+            this.$silderBox.on("mouseover", function () {
                 clearInterval(_this.timer);
             });
-            this.$silderBox.on("mouseout",function() {
+            this.$silderBox.on("mouseout", function () {
                 _this.autoplay();
             });
             // 小圆点控制
@@ -145,9 +226,9 @@
         // 图片切换
         imgChange() {
             // 控制索引范围
-            if(this.num < 0) {
+            if (this.num < 0) {
                 this.num = this.$olBtns.length - 1;
-            }else if(this.num > this.$olBtns.length - 1) {
+            } else if (this.num > this.$olBtns.length - 1) {
                 this.num = 0;
             }
             // 控制样式
@@ -157,17 +238,17 @@
         //自动轮播
         autoplay() {
             var _this = this;
-            this.timer = setInterval(function() {
+            this.timer = setInterval(function () {
                 _this.num++;
                 _this.imgChange();
-            },2000);
+            }, 2000);
         }
     }
     new Silder().init();
 })(jQuery);
 
 //返回顶部
-;(function($) {
+; (function ($) {
     class backTop {
         constructor() {
             this.$backBox = $('.aside .back-top'); //回到顶部盒子
@@ -206,7 +287,7 @@
 })(jQuery);
 
 // tab切换
-;(function($) {
+; (function ($) {
     $(".tab").tab({
         etype: "mouseover",
         btnLi: ".tab-title li",
@@ -216,7 +297,7 @@
 })(jQuery);
 
 // 幻灯片效果(新书预售)
-;(function ($) {
+; (function ($) {
     class slider {
         constructor() {
             //获取元素
@@ -250,17 +331,17 @@
         imgChange() {
             var _this = this;
 
-            if(this.num < 0) {
+            if (this.num < 0) {
                 this.num = this.$olBtn.length - 1;
-            }else if(this.num > this.$olBtn.length - 1) {
+            } else if (this.num > this.$olBtn.length - 1) {
                 this.num = 0;
             }
-            
+
             this.$olBtn.eq(this.num).addClass('active').siblings().removeClass('active');
 
             this.$liWidth = this.$imgsLi.eq(0).width();
             this.l = -this.$liWidth * this.num;
-            
+
             this.$imgsUl.stop().animate({
                 left: this.l
             }, function () {
@@ -269,7 +350,7 @@
         }
         // 左按钮功能
         prev() {
-            if(this.bstop) {
+            if (this.bstop) {
                 this.bstop = false;
                 this.num--;
                 this.imgChange();
@@ -277,11 +358,11 @@
         }
         // 右按钮功能
         next() {
-            if(this.bstop) {
+            if (this.bstop) {
                 this.bstop = false;
                 this.num++;
                 this.imgChange();
-            } 
+            }
         }
     }
     new slider().init();
@@ -289,7 +370,7 @@
 })(jQuery);
 
 // 幻灯片效果(新书上架)
-;(function ($) {
+; (function ($) {
     class slider {
         constructor() {
             //获取元素
@@ -323,17 +404,17 @@
         imgChange() {
             var _this = this;
 
-            if(this.num < 0) {
+            if (this.num < 0) {
                 this.num = this.$olBtn.length - 1;
-            }else if(this.num > this.$olBtn.length - 1) {
+            } else if (this.num > this.$olBtn.length - 1) {
                 this.num = 0;
             }
-            
+
             this.$olBtn.eq(this.num).addClass('active').siblings().removeClass('active');
 
             this.$liWidth = this.$imgsLi.eq(0).width();
             this.l = -this.$liWidth * this.num;
-            
+
             this.$imgsUl.stop().animate({
                 left: this.l
             }, function () {
@@ -342,7 +423,7 @@
         }
         // 左按钮功能
         prev() {
-            if(this.bstop) {
+            if (this.bstop) {
                 this.bstop = false;
                 this.num--;
                 this.imgChange();
@@ -350,11 +431,11 @@
         }
         // 右按钮功能
         next() {
-            if(this.bstop) {
+            if (this.bstop) {
                 this.bstop = false;
                 this.num++;
                 this.imgChange();
-            } 
+            }
         }
     }
     new slider().init();
@@ -362,7 +443,7 @@
 })(jQuery);
 
 // 数据渲染、懒加载
-;(function ($) {
+; (function ($) {
     class drawAll {
         constructor() {
             this.$newbook = $('.newbook .content .con'); //新书上架
@@ -372,45 +453,45 @@
             this.$readerRecommend = $(".reader-recommend .tab-content .con"); //读者推荐
             this.$phpUrl = 'http://10.31.163.63/dangdang/php/';
         }
-        
+
         init() {
             var _this = this;
             // 第一个tab的渲染
-            this.drawData(this.$newbook,8); //新书上架渲染
-            this.drawData(this.$exclusive.eq(0),10); //独家特供渲染
-            this.drawData(this.$chiefRecommend.eq(0),10); //主编推荐渲染
-            this.drawData(this.$guessYouLike,10); //猜你喜欢渲染
-            this.drawData(this.$readerRecommend.eq(0),10); //读者推荐渲染
+            this.drawData(this.$newbook, 8); //新书上架渲染
+            this.drawData(this.$exclusive.eq(0), 10); //独家特供渲染
+            this.drawData(this.$chiefRecommend.eq(0), 10); //主编推荐渲染
+            this.drawData(this.$guessYouLike, 10); //猜你喜欢渲染
+            this.drawData(this.$readerRecommend.eq(0), 10); //读者推荐渲染
             // 其他tab敷衍渲染
-            this.$exclusive.each(function(index) {
-                if(index>0) {
-                    _this.drawData($(this),index)
+            this.$exclusive.each(function (index) {
+                if (index > 0) {
+                    _this.drawData($(this), index)
                 }
             });
-            this.$chiefRecommend.each(function(index) {
-                if(index>0) {
-                    _this.drawData($(this),index)
+            this.$chiefRecommend.each(function (index) {
+                if (index > 0) {
+                    _this.drawData($(this), index)
                 }
             });
-            this.$readerRecommend.each(function(index) {
-                if(index>0) {
-                    _this.drawData($(this),index*4)
+            this.$readerRecommend.each(function (index) {
+                if (index > 0) {
+                    _this.drawData($(this), index * 4)
                 }
             });
         }
 
         // 渲染数据和懒加载
-        drawData(ele,num) {
+        drawData(ele, num) {
             var _this = this;
             $.ajax({
                 url: this.$phpUrl + 'allData.php',
-                dataType:'json',
-                success:function(data) {
+                dataType: 'json',
+                success: function (data) {
                     let $htmlStr = '';
                     let ebookHtmlStr = '';
                     // 判断有没有传入num
                     var n = num || data.length;
-                    
+
                     $.each(data, function (index, value) {
                         // 电子书价格的拼接
                         ebookHtmlStr = `<span class="ebookprice">
@@ -418,7 +499,7 @@
                                             <span class="sign">¥</span><span class="num">${value.ebookprice}</span>
                                         </span>`;
                         // 每本图书的拼接
-                        if(index<n) {
+                        if (index < n) {
                             $htmlStr += `<li>
                                             <a href="detail.html?sid=${value.sid}" target="_blank">
                                                 <img class="lazy" data-original=${value.picurl}>
@@ -436,7 +517,7 @@
                                                     <span class="sign">¥</span>
                                                     <span class="num">${value.oldprice}</span>
                                                 </span>
-                                                ${value.ebookprice?ebookHtmlStr:''}
+                                                ${value.ebookprice ? ebookHtmlStr : ''}
                                             </p>
                                         </li>`;
                         }
@@ -448,9 +529,9 @@
                     });
                 }
             });
-            
+
         }
     }
-    
+
     new drawAll().init();
 })(jQuery);

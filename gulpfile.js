@@ -10,6 +10,6 @@ gulp.task('runsass', function () {
 		.pipe(gulp.dest('src/css/'));
 });
 
-// gulp.task('default',function(){
-// 	watch(['src/sass/*.scss'],gulp.parallel('runsass'));
-// });
+gulp.task('default',function(){
+	watch(['src/sass/*.scss'],gulp.parallel('runsass'));
+});
