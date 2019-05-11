@@ -1,0 +1,254 @@
+@charset "utf-8";
+
+// 清除浮动
+@mixin clearfix() {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+// 头部
+.head {
+    height: 100px;
+    border-bottom: 4px solid #ff2832;
+    // logo图
+    .logo {
+        position: relative;
+        width: 960px;
+        padding: 20px 0 0 15px;
+        margin: 0 auto;
+    }
+    // 流程
+    .procedure {
+        width: 634px;
+        height: 36px;
+        background: url(../img/procedure_bg.png) 0 0 no-repeat;
+        font: bold 14px/36px "Microsoft Yahei";
+        color: #646464;
+        margin: 30px 0 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        span {
+            width: 206px;
+            display: inline-block;
+            text-align: center;
+            &.active {
+                color: #fff;
+            }
+        }
+    }
+}
+
+// 内容
+.content {
+    width: 960px;
+    margin: 0 auto;
+    // 登录提示
+    .login-tip {
+        margin: 10px 0;
+        height: 34px;
+        line-height: 34px;
+        background-color: #fff5f5;
+        border: 1px solid #ffecec;
+        // 小图
+        .icon {
+            width: 34px;
+            height: 34px;
+            display: inline-block;
+            background: url(../img/icon_sprite.png) 5px -201px no-repeat;
+            vertical-align: top;
+        }
+        // 登录按钮
+        a {
+            width: 62px;
+            height: 22px;
+            line-height: 22px;
+            display: inline-block;
+            background: #ff2832;
+            border-radius: 2px;
+            color: #fff;
+            text-align: center;
+            margin: 0 10px;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    // 欢迎购物提示
+    .welcome {
+        @extend .login-tip;
+    }
+    // 购物车列表
+    .cart-list {
+        margin-top: 10px;
+        // 标题
+        .title {
+            color: #969696;
+            ul {
+                height: 36px;
+            }
+            li {
+                float: left;
+                height: 36px;
+                line-height: 36px;
+            }
+            // 全选
+            .t1 {
+                width: 202px;
+                input {
+                    vertical-align: middle;
+                    margin-right: 10px;
+                }
+            }
+            // 商品信息
+            .t2 {
+                width: 280px;
+            }
+            // 单价（元）
+            .t3 {
+                width: 130px;
+                text-align: center;
+            }
+            // 数量
+            .t4 {
+                @extend .t3;
+            }
+            // 金额（元）
+            .t5 {
+                @extend .t3;
+            }
+            // 操作
+            .t6 {
+                width: 70px;
+                text-align: center;
+            }
+        }
+        // 内容详情
+        .info {
+            border: 1px solid #e4e4e4;
+            position: relative;
+            ul {
+                @include clearfix();
+                border-bottom: 1px solid #e4e4e4;
+            }
+            li {
+                float: left;
+            }
+            // 复选框和书的图片
+            .f1 {
+                width: 132px;
+                padding: 20px;
+                img {
+                    width: 80px;
+                    height: 80px;
+                    margin-left: 20px;
+                }
+            }
+            // 商品信息
+            .f2 {
+                width: 305px;
+                padding-top: 17px;
+            }
+            // 单价
+            .f3 {
+                width: 130px;
+                padding-top: 15px;
+                text-align: center;
+            }
+            // 数量
+            .f4 {
+                width: 130px;
+                padding-top: 10px;
+                span {
+                    display: block;
+                    border: 1px solid #dcdcdc;
+                    height: 28px;
+                    width: 94px;
+                    line-height: 28px;
+                    font-size: 14px;
+                    margin: 5px auto;
+                }
+                // + - 按钮
+                a {
+                    display: block;
+                    float: left;
+                    height: 28px;
+                    width: 28px;
+                    background-color: #f4f4f4;
+                    text-align: center;
+                    line-height: 28px;
+                }
+                // 输入文本框
+                input {
+                    width: 36px;
+                    height: 28px;
+                    line-height: 28px;
+                    float: left;
+                    padding: 0;
+                    text-align: center;
+                    border: 1px solid #dcdcdc;
+                    border-width: 0 1px;
+                    background-color: #fff;
+                }
+            }
+            // 金额
+            .f5 {
+                width: 130px;
+                padding-top: 15px;
+                text-align: center;
+                color: red;
+            }
+            // 操作
+            .f6 {
+                width: 70px;
+                padding-top: 15px;
+                text-align: center;
+                a {
+                    color: #323232;
+                }
+                a:hover {
+                    text-decoration: underline;
+                    color: #ff2832;
+                }
+            }
+            // 总计
+            .all-const {
+                @include clearfix();
+                .msg {
+                    float: left;
+                    text-align: center;
+                    color: #323232;
+                    font-weight: bold;
+                    line-height: 22px;
+                    font-size: 12px;
+                    padding: 15px 20px 15px 65px;
+                }
+                .del-all {
+                    float: left;
+                    padding-top: 18px;
+                    a:hover {
+                        text-decoration: underline;
+                        color: #ff2832;
+                    }
+                }
+                .all-price {
+                    float: right;
+                    @extend .f5;
+                    font-size: 16px;
+                    padding-right: 90px;
+                }
+                .book-count {
+                    float: right;
+                    font-size: 15px;
+                    padding-top: 15px;
+                    span {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
+}

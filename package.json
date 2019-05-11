@@ -14,6 +14,7 @@
     "gulp-rename": "^1.4.0"
   },
   "devDependencies": {
+    "gulp-babel": "^8.0.0",
     "gulp-sass": "^4.0.2"
   },
   "scripts": {

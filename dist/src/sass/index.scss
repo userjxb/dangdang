@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+$theme-color:#ff2832;
+$f-left:left;
+// 版心
+.wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+// 清除浮动
+@mixin clearfix() {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+// a:hover样式
+@mixin a-hover($c,$u) {
+    a:hover {
+        color: $c;
+        text-decoration: $u;
+    }
+}
+
+// 头部a的样式
+%a-style {
+    color: #646464;
+    &:hover {
+        color: $theme-color;
+        text-decoration: none;
+    }
+}
+
+@import "header";
+@import "main";
+@import "aside";
+@import "footer";

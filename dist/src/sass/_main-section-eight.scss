@@ -1,0 +1,129 @@
+@charset "utf-8";
+
+.section-eight {
+    height: $s8-h;
+    border-bottom: 1px solid #eaeaea;
+    margin-bottom: 25px;
+    position: relative;
+    .section-eight-left {
+        height: 100%;
+        margin-right: 10px;
+        // 读者推荐
+        .reader-recommend {
+            width: 950px;
+            height: 594px;
+            // 头部tab选项卡
+            .tab-head {
+                @extend %tab-head;
+                .title {
+                    background-position: 0 -223px;
+                }
+            }
+            // 内容
+            .tab-content {
+                ul {
+                    @extend %content-ul;
+                    width: 1000px;
+                }
+            }
+        } 
+    }
+
+    .section-eight-right {
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        // 当当读书社区
+        .community {
+            width: 238px;
+            height: 594px;
+            border: 1px solid #eaeaea;
+            // 标题图片
+            .head-pic {
+                background: url(../img/book_community_bg.png) 0 0 no-repeat;
+                text-indent: -9999px;
+                display: block;
+                width: 238px;
+                height: 84px;
+            }
+            // 标题
+            .caption {
+                margin-top: 13px;
+                padding-left: 14px;
+                color: #487a6f;
+                font-size: 18px;
+                font-weight: normal;
+                height: 30px;
+                line-height: 30px;
+            }
+            // 描述
+            .des {
+                display: block;
+                padding: 0 14px;
+                line-height: 24px;
+                font-size: 14px;
+                color: #000;
+                height: 48px;
+                overflow: hidden;
+                position: relative;
+                font-weight: bold;
+                &:hover {
+                    text-decoration: underline;
+                    color: #ec7814;
+                }
+            }
+            // 书的图片
+            .book-pic {
+                margin-left: 44px;
+                margin-top: 18px;
+                img {
+                    display: block;
+                    width: 150px;
+                    height: 150px;
+                }
+            }
+            // 小段文章
+            .article {
+                margin-top: 20px;
+                display: block;
+                padding: 0 14px;
+                color: #000;
+                line-height: 24px;
+                height: 168px;
+                position: relative;
+                overflow: hidden;
+                &:hover {
+                    text-decoration: underline;
+                    color: #ec7814;
+                }
+            }
+            // 两个按钮
+            %btn-style {
+                width: 98px;
+                height: 28px;
+                display: block;
+                float: left;
+                background: #487a6f;
+                text-align: center;
+                font-family: "Microsoft Yahei";
+                font-size: 16px;
+                color: #fff;
+                text-decoration: none;
+                line-height: 28px;
+            }
+            .btns {
+                padding-left: 16px;
+                margin-top: 17px;
+                .ebook-btn {
+                    @extend %btn-style;
+                    background: #ff5d5d;
+                    margin-right: 10px;
+                }
+                .client-btn {
+                    @extend %btn-style;
+                }
+            }
+        }
+    }
+}

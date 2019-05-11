@@ -1,0 +1,77 @@
+@charset "utf-8";
+
+.aside {
+    width: 54px;
+    height: 172px;
+    position: fixed;
+    left: 50%;
+    margin-left: 610px;
+    bottom: 100px;
+    div {
+        width: 54px;
+        height: 54px;
+        margin-bottom: 5px;
+    }
+    // 二维码
+    .QR-code {
+        .small {
+            display: block;
+            width: 48px;
+            height: 48px;
+            background: #646464 url(http://img39.ddimg.cn/upload_img/00363/home/erweima_home.png) -119px 3px no-repeat;
+            padding: 3px;
+            border: 1px solid #ddd;
+            &:hover {
+                background-position: -119px -49px;
+                background-color: #fa3228;
+            }
+        }
+        .small:hover + .big {
+            display: block;
+        }
+        .big {
+            display: none;
+            width: 243px;
+            height: 128px;
+            background: url(http://img61.ddimg.cn/upload_img/00660/book/scan_pic-1516086868.jpg) center center no-repeat;
+            position: absolute;
+            left: -248px;
+            top: 0;
+            z-index: 50;
+            border: 1px solid #ddd;
+        }
+    }
+    // 新版调研
+    .survey {
+        a {
+            display: block;
+            width: 54px;
+            overflow: hidden;
+            background: url(../img/backtop2.png) no-repeat 0 0;
+            opacity: .8;
+            filter: alpha(opacity=80);
+            line-height: 22px;
+            height: 22px;
+            padding-top: 32px;
+            font-size: 12px;
+            text-align: center;
+            color: #7e7e7e;
+            text-decoration: none;
+            &:hover {
+                background-position: -54px 0;
+                color: #fff;
+            }
+        }
+    }
+    // 回到顶部
+    .back-top {
+        @extend .survey;
+        a {
+            background-position: 0 -54px;
+            text-indent: -9999px;
+            &:hover {
+                background-position: -54px -54px;
+            }
+        }
+    }
+}

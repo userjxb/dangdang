@@ -1,0 +1,346 @@
+@charset "utf-8";
+
+$list-color:#487a6f;
+
+// 第一大块
+.section-one {
+    @include clearfix();
+    margin-bottom: 20px;
+    // 左边区域
+    .section-one-left {
+        float: $f-left;
+        margin-right: 10px;
+        // 图书分类菜单
+        .book-classify {
+            width: 190px;
+            // 标题
+            .title {
+                height: 35px;
+                width: 190px;
+                text-align: center;
+                font-size: 18px;
+                background: $list-color;
+                border-radius: 4px 4px 0 0;
+                line-height: 34px;
+                color: #fff;
+            }
+            // 列表内容
+            .content {
+                width: 190px;
+                height: 894px;
+                border-top: 2px dotted $list-color;
+                border-bottom: 1px solid $list-color;
+                background: url(../img/sidemenu_bg2.png) -20px 0px repeat-y;
+                position: relative;
+                li {
+                    border: 1px solid transparent;
+                    border-width: 1px 0;
+                    .hide-menu {
+                        display: none;
+                    }
+                }
+                li:hover{
+                    border-color: #487a6f;
+                    dl {
+                        border-bottom-color: transparent;
+                    }
+                }
+                // 一级分类导航
+                &>li>dl {
+                    width: 170px;
+                    border-bottom: 1px dotted #849555;
+                    margin-left: 9px;
+                    position: relative;
+                    overflow: hidden;
+                    padding-top: 3px;
+                    padding-bottom: 2px;
+                }
+                &>li>dl>dt {
+                    padding-bottom: 3px;
+                    span {
+                        display: block;
+                        color: $list-color;
+                        font-size: 14px;
+                        height: 24px;
+                        line-height: 24px;
+                        background: url(../img/sidemenu_bg2.png) 160px 8px no-repeat;
+                        font-weight: bold;
+                    }
+                    a {
+                        color: $list-color;
+                        font-size: 14px;
+                        line-height: 24px;
+                    }
+                    @include a-hover(#ec7814,none);
+                }
+                &>li>dl>dd {
+                    width: 178px;
+                    padding-bottom: 3px;
+                    a {
+                        color: #666;
+                        float: left;
+                        height: 24px;
+                        line-height: 24px;
+                        padding-right: 5px;
+                        white-space: nowrap;
+                        background: url(../img/sidemenu_bg1.png) right center no-repeat;
+                        margin-right: 5px;
+                    }
+                    a:last-child {
+                        background: none;
+                    }
+                    @include a-hover(#ec7814,underline);
+                }
+                // 二级分类导航
+                .hide-menu {
+                    position: absolute;
+                    left: 189px;
+                    top: -1px;
+                    width: 590px;
+                    border: 1px solid #487a6f;
+                    padding: 6px 12px 15px 16px;
+                    z-index: 20;
+                    box-shadow: -1px 1px 8px #bbb;
+                    background: #fff;
+                    display: none;
+                    dl {
+                        @include clearfix();
+                        border-bottom: 1px dotted #d4d4d4;
+                        padding: 5px 0;
+                        &:last-child {
+                            border-bottom: 0;
+                        }
+                    }
+                    dt {
+                        width: 80px;
+                        float: left;
+                        margin-right: 20px;
+                        line-height: 28px;
+                        font-size: 12px;
+                        text-align: right;
+                        font-family: "Microsoft Yahei";
+                        color: #367e6f;
+                        font-weight: bold;
+                    }
+                    dd {
+                        float: left;
+                        width: 470px;
+                        a {
+                            color: #666;
+                            padding-right: 9px;
+                            white-space: nowrap;
+                            background: url(../img/sidemenu_bg1.png) right center no-repeat;
+                            margin-right: 8px;
+                            float: left;
+                            line-height: 28px;
+                            font-size: 12px;
+                        }
+                        @include a-hover(#ec7814,underline);
+                    }
+                }
+            }
+        }
+    }
+    // 中间区域
+    .section-one-center {
+        float: $f-left;
+        width: 750px;
+        margin-right: 10px;
+        // 轮播图
+        .slider-tab {
+            width: 750px;
+            height: 315px;
+            margin-bottom: 10px;
+            position: relative;
+            // 轮播的图片
+            .pics {
+                position: relative;
+                li {
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                }
+                li:first-child {
+                    z-index: 1;
+                }
+            }
+            // 小圆点按钮
+            .btns {
+                position: absolute;
+                right: 0;
+                bottom: 10px;
+                z-index: 10;
+                li {
+                    width: 21px;
+                    height: 21px;
+                    line-height: 21px;
+                    border-radius: 50%;
+                    background: #fff;
+                    margin-right: 10px;
+                    text-align: center;
+                    color: #000;
+                    font-size: 14px;
+                    float: left;
+                    position: relative;
+                    cursor: pointer;
+                    &.active {
+                        background: #ff4848;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+        // 新书上架
+        .newbook {
+            width: 750px;
+            height: 608px;
+            position: relative;
+            // 标题图片
+            .title {
+                background: url(../img/new_book.png) no-repeat;
+                width: 750px;
+                height: 43px;
+            }
+            // 轮播盒子
+            .slider {
+                width: 100%;
+                height: 565px;
+                position: absolute;
+                overflow: hidden;
+            }
+            // 内容
+            .content {
+                width: 3200px;
+                position: absolute;
+                left: 0;
+                top: 0;
+                @include clearfix();
+                ul {
+                    @extend %content-ul;
+                    @include clearfix();
+                    float: left;
+                    display: block;
+                }
+            }
+            // 小圆点按钮
+            @include ol-btns(337px,555px);
+            // 左右按钮
+            @include prev-next();
+            .button {
+                margin-top: 10px;
+            }
+        }
+    }
+    // 右边区域
+    .section-one-right {
+        float: $f-left;
+        width: 240px;
+        height: 100%;
+        // 最新动态
+        .new-trends {
+            border: 1px solid #eaeaea;
+            padding: 6px 10px;
+            width: 218px;
+            margin-bottom: 10px;
+            // 标题
+            .title {
+                height: 28px;
+                font-size: 16px;
+                color: #000;
+            }
+            // 文本列表
+            .text-list {
+                position: relative;
+                overflow: hidden;
+                height: 68px;
+                a {
+                    font-size: 12px;
+                    color: #000;
+                    display: block;
+                    height: 22px;
+                    position: relative;
+                    overflow: hidden;
+                    padding-left: 7px;
+                    line-height: 22px;
+                    background: url(../img/sprite.png) -16px -160px no-repeat;
+                }
+            }
+        }
+        // 新书预售
+        .open-to-booking {
+            border: 1px solid #eaeaea;
+            padding: 6px 0 0;
+            width: 238px;
+            height: 187px;
+            position: relative;
+            margin-bottom: 9px;
+            overflow: hidden;
+            // 标题
+            .title {
+                height: 25px;
+                font-size: 16px;
+                color: #000;
+                padding-left: 10px;
+                a {
+                    font-size: 12px;
+                    position: absolute;
+                    top: 10px;
+                    right: 8px;
+                    color: #5097bc;
+                }
+            }
+            // 中间轮播幻灯片
+            ul {
+                width: 1200px;
+                position: absolute;
+                @include clearfix();
+                li {
+                    float: left;
+                    height: 148px;
+                    width: 238px;
+                    position: relative;
+                    // 书名
+                    .name {
+                        width: 94px;
+                        height: 44px;
+                        line-height: 22px;
+                        font-size: 12px;
+                        position: absolute;
+                        left: 120px;
+                        top: 21px;
+                        overflow: hidden;
+                        @include a-hover(#ec7814,underline);
+                    }
+                    // 价格
+                    .price {
+                        width: 110px;
+                        font-size: 14px;
+                        font-family: "Arial";
+                        position: absolute;
+                        left: 120px;
+                        top: 70px;
+                        .new-price {
+                            color: #c30000;
+                            margin-right: 8px;
+                            font-weight: bold;
+                            display: block;
+                            margin-bottom: 4px;
+                        }
+                        .old-price {
+                            color: #aaa;
+                            text-decoration: line-through;
+                        }
+                    }
+                }
+            }
+            // 小圆点按钮
+            @include ol-btns(80px,172px);
+            // 左右按钮
+            @include prev-next();
+        }
+        // 新书热卖榜
+        .hot-menu {
+            @include tab-switch();
+        }
+    }
+}

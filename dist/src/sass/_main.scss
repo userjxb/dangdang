@@ -1,0 +1,365 @@
+@charset "utf-8";
+
+$s1-h: 916px;
+$s2-h: 582px;
+$s3-h: 202px;
+$s4-h: 606px;
+$s5-h: 525px;
+$s6-h: 202px;
+$s7-h: 580px;
+$s8-h: 617px;
+$s9-h: 559px;
+
+.main {
+    height: auto;
+    margin-top: 15px;
+    position: relative;
+    .banner {
+        margin-bottom: 10px;
+        a {
+            display: block;
+        }
+    }
+}
+// 广告样式
+%ad {
+    width: 1200px;
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
+    border-top: 1px solid #eaeaea;
+    .book-banner {
+        width: 1300px;
+        a {
+            float: left;
+            width: 382px;
+            margin-right: 27px;
+        }
+    }
+}
+// 头部标题、tab选项卡
+%tab-head {
+    position: relative;
+    height: 50px;
+    border-bottom: 1px solid #487a6f;
+    // 标题
+    .title {
+        height: 50px;
+        width: 108px;
+        line-height: 0;
+        font-size: 0;
+        background: url(../img/title_sprite.png) 0 0 no-repeat;
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-indent: -9999px;
+    }
+    // tab选项卡
+    .tab-title {
+        height: 35px;
+        position: absolute;
+        right: 15px;
+        top: 17px;
+        li {
+            padding: 2px 17px 0;
+            height: 32px;
+            line-height: 32px;
+            float: left;
+            color: #666;
+            font-size: 14px;
+            margin-right: 4px;
+            cursor: pointer;
+            &.active {
+                background: #fff;
+                border-radius: 6px 6px 0 0;
+                border: 2px solid #487a6f;
+                border-bottom: none;
+                color: #4e8176;
+                padding: 0 15px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+// 图书商品内容样式
+%content-ul {
+    display: none;
+    &.show {
+        display: block;
+    }
+    width: 800px;
+    padding-top: 25px;
+    @include clearfix();
+    li {
+        float: left;
+        width: 150px;
+        margin-right: 47px;
+        margin-bottom: 16px;
+        height: 250px;
+        position: relative;
+        img {
+            width: 150px;
+            height: 150px;
+        }
+        // 书名
+        .name {
+            padding: 7px 20px 0;
+            height: 18px;
+            line-height: 18px;
+            overflow: hidden;
+            @include a-hover(#ec7814,underline);
+        }
+        // 作者
+        .author {
+            padding: 0 20px;
+            height: 24px;
+            line-height: 24px;
+            overflow: hidden;
+            color: #aaa;
+        }
+        // 价格
+        .price {
+            padding-left: 20px;
+            line-height: 16px;
+            overflow: hidden;
+            font-family: "Arial";
+            font-size: 14px;
+            position: relative;
+            height: 36px;
+            .new-price {
+                color: #c30;
+                float: left;
+                overflow: hidden;
+                font-weight: bold;
+                margin-right: 12px;
+            }
+            .old-price {
+                color: #aaa;
+                text-decoration: line-through;
+                float: left;
+                overflow: hidden;
+            }
+            .ebookprice {
+                position: absolute;
+                left: 20px;
+                top: 16px;
+                display: inline-block;
+                font: 12px Arial;
+                padding: 4px 0 0 0;
+                color: #787878;
+            }
+        }
+    }
+}
+// 小圆点按钮样式
+@mixin ol-btns($left,$top) {
+    ol {
+        position: absolute;
+        left: $left;
+        top: $top;
+        li {
+            float: left;
+            width: 10px;
+            height: 10px;
+            font-size: 0;
+            line-height: 10px;
+            margin-right: 10px;
+            background: url(../img/diandian_bg2.png) 0 -20px no-repeat;
+            text-indent: -9999px;
+            cursor: pointer;
+            &.active {
+                background-position: 0 0;
+            }
+        }
+    }
+}
+// 左右按钮样式
+@mixin prev-next() {
+    .button {
+        width: 25px;
+        height: 50px;
+        background: url(../img/book_fanye_btn.png) no-repeat;
+        position: absolute;
+        top: 50%;
+        margin-top: -20px;
+        cursor: pointer;
+    }
+    .prev {    
+        left: 0;
+        background-position: 0 0;
+        &:hover {
+            background-position: 0 -51px;
+        }
+    }
+    .next {
+        right: 0;
+        background-position: -26px 0;
+        &:hover {
+            background-position: -26px -51px;
+        }
+    }   
+}
+// 榜单tab切换样式
+@mixin tab-switch() {
+    width: 240px;
+    height: 592px;
+    // 标题
+    .title {
+        height: 40px;
+        line-height: 40px;
+        padding-left: 34px;
+        font-size: 16px;
+        font-weight: bold;
+        background: url(../img/sprite.png) 5px 4px no-repeat;
+        position: relative;
+        overflow: hidden;
+        a {
+            color: #d72832;
+        }
+    }
+    // tab选项卡
+    .tab-title {
+        height: 25px;
+        li {
+            float: left;
+            width: 48px;
+            span {
+                display: block;
+                text-align: center;
+                height: 20px;
+                line-height: 20px;
+                border: 1px solid #eaeaea;
+                border-left: 0;
+                padding: 2px 0 1px;
+                cursor: pointer;
+            }
+            &:first-child span {
+                border-left: 1px solid #eaeaea;
+            }
+            &.active {
+                border-top: 2px solid #487a6f;
+                span {
+                    border-bottom: 0px;
+                    padding-top: 1px;
+                    border-top: 0;
+                    font-weight: bold;
+                    color: #487a6f;
+                }
+            }
+        }
+    }
+    // tab内容
+    .tab-content {
+        height: 543px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #eaeaea;
+        border-top: 0;
+        // 每一块tab
+        .con {
+            display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        // 文字描述li
+        li {
+            border-bottom: 1px dotted #d8d8d8;
+            vertical-align: top;
+            margin-left: 9px;
+            width: 220px;
+            // 序号公用样式
+            span.rank {
+                width: 29px;
+                padding-left: 8px;
+                float: left;
+                font-size: 16px;
+                color: #000;
+            }
+        }
+        li.bar {
+            height: 36px;
+            line-height: 36px;
+            // 书名
+            p.name {
+                float: left;
+                height: 36px;
+                position: relative;
+                overflow: hidden;
+                width: 182px;
+            }
+        }
+        // 详细情况li
+        .item {
+            height: 150px;
+            position: relative;
+            padding-top: 5px;
+            // 书的图片
+            .img {
+                position: absolute;
+                left: 21px;
+                top: 12px;
+            }
+            img {
+                width: 120px;
+                height: 120px;
+            }
+            // 书名
+            .name {
+                height: 44px;
+                line-height: 22px;
+                position: absolute;
+                overflow: hidden;
+                top: 9px;
+                left: 145px;
+            }
+            // 价格
+            .price {
+                position: absolute;
+                top: 55px;
+                left: 145px;
+                font-size: 14px;
+                line-height: 20px;
+                .new-price {
+                    color: #c30000;
+                    line-height: 20px;
+                    height: 20px;
+                    font-size: 14px;
+                    display: block;
+                    font-weight: bold;
+                }
+                .old-price {
+                    color: #a7a7a7;
+                    text-decoration: line-through;
+                    line-height: 18px;
+                    height: 18px;
+                    font-size: 14px;
+                }
+            }
+            // 评论
+            .comment {
+                position: absolute;
+                left: 145px;
+                top: 97px;
+                color: #487a6f;
+                a {
+                    color: #487a6f
+                }
+                @include a-hover(#487a6f,underline);
+            }
+        }
+    }   
+}
+
+
+@import "main-section-one";
+@import "main-section-two";
+@import "main-section-three";
+@import "main-section-four";
+@import "main-section-five";
+@import "main-section-six";
+@import "main-section-seven";
+@import "main-section-eight";
+@import "main-section-nine";
