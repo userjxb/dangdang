@@ -217,8 +217,9 @@
             });
             arrsid.splice($index, 1);//删除数组对应的值
             this.arrnum.splice($index, 1);//删除数组对应的值
-            $.cookie('cookiesid', arrsid.toString(), {expires:7});//添加cookie
-	        $.cookie('cookienum', this.arrnum.toString(), {expires:7});//添加cookie
+            // 添加cookie
+            $.cookie('cookiesid', arrsid.toString(), {expires:7});
+            $.cookie('cookienum', this.arrnum.toString(), {expires:7});
         }
         // 删除当前商品
         delCurrentItem() {

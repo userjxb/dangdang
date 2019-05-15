@@ -15,6 +15,7 @@
         }
 
         init() {
+            // 自定义规则
             $.validator.addMethod("isMobile", function (value, element) {
                 var length = value.length;
                 var mobile = /^1[35789]\d{9}$/;

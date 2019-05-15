@@ -47,7 +47,7 @@
                     } else {
                         $.cookie('account',$account);
                     }
-                    location.href='index123.html';
+                    location.href='index.html';
                 }
             });
         }

@@ -1,7 +1,6 @@
 {
   "name": "day32-gulp",
   "version": "1.0.0",
-  "description": "",
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "^4.0.1",
@@ -14,12 +13,25 @@
     "gulp-rename": "^1.4.0"
   },
   "devDependencies": {
-    "gulp-babel": "^8.0.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "gulp-babel": "^7.0.1",
     "gulp-sass": "^4.0.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/userjxb/dangdang.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/userjxb/dangdang/issues"
+  },
+  "homepage": "https://github.com/userjxb/dangdang#readme",
+  "description": ""
 }

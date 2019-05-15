@@ -7,6 +7,68 @@
     $(".nav-top").load("header.html .nav-top");    
 })(jQuery);
 
+// 判断是否登录
+; (function ($) {
+    class isLogined {
+        constructor() {
+            this.timer = null;
+            this.$account = $.cookie('account');
+            this.phpUrl = "http://10.31.163.63/dangdang/php/";
+        }
+
+        init() {
+            var _this = this;
+            // 延迟取元素
+            this.timer = setTimeout(function () {
+                // 如果cookie存在，则显示欢迎，否则请求登录
+                _this.showInfo();
+                clearTimeout(_this.timer);
+            }, 150);
+            // 获取昵称
+            this.getPetName();
+            // 退出登录
+            this.exit();
+        }
+        // 如果cookie存在，则显示欢迎，否则请求登录
+        showInfo() {
+            if (this.$account) {
+                $('.pleaseLogin').hide();
+                $('.welcomeWord').find('span').html(this.$account);
+                $('.welcomeWord').show();
+            } else {
+                $('.pleaseLogin').show();
+                $('.welcomeWord').hide();
+            }
+        }
+        // 获取昵称
+        getPetName() {
+            var _this = this;
+            $.ajax({
+                type: 'get',
+                url: this.phpUrl + 'getPetName.php',
+                data: {
+                    account: this.$account
+                },
+                dataType: "json",
+            }).done(function (data) {
+                _this.$account = data.username;
+            });
+        }
+        // 退出登录
+        exit() {
+            var _this = this;
+            $('.header').on('click', '.exit', function () {
+                if (confirm("你确定要退出吗？")) {
+                    $.cookie("account", "null", { expires: -1 });
+                    $('.pleaseLogin').show();
+                    $('.welcomeWord').hide();
+                }
+            });
+        }
+    }
+    new isLogined().init();
+})(jQuery);
+
 // 数据渲染
 ;(function($) {
     class details {
